@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create ]
   end
 
-  resources :tasks, only: [:edit, :update, :destroy]
+  resources :tasks, only: [:edit, :update, :destroy, :index]
 
   # commented routes for checking in the future
 

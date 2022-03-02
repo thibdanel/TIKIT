@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @user_service = UserService.find(params[:user_service_id])
-    @service = Service.find(@user_service.service_id)
+    @service = Service.find(@user_service.service1)
     @task.user_service = @user_service
     @task.user = current_user
 
