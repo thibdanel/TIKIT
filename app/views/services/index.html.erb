@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-4">
         <div class="macaron">
+          <h2><%= current_user.tasks.count %></h2>
           <p>Toutes les taches</p>
         </div>
       </div>
@@ -30,7 +31,7 @@
             <div class="card-product">
               <img src="https://www.e-carion.com/wp-content/uploads/2016/04/logo-impots-gouv.jpg" />
                 <div class="card-product-infos">
-                  <h2><%= service.name %></h2>
+                  <h2><%= link_to service.name, service_path(service) %></h2>
                   <% service.user_services.each do |us| %>
                   <p>Name: <%= us.contact_name %> </p>
                   <p>Tel: <%= us.contact_phone %> </p>
@@ -52,5 +53,5 @@
           <h5 class="card-title">Mutuelle</h5>
         </div>
     </div>
-
+  <%= link_to "Create your own service", new_service_path(@service), class: 'btn btn-primary' %>
 </div>
