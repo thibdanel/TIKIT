@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
 
   def edit
     @service = Service.find(params[:id])
+    @user_service = UserService.find_by(service: @service, user: current_user)
   end
 
   def new
@@ -35,5 +36,4 @@ class ServicesController < ApplicationController
   def service_params
     params.require(:service).permit(:name, :description, :color)
   end
-
 end
