@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_103024) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.bigint "user_service_id", null: false
+    t.bigint "user_service_id"
     t.boolean "done"
     t.index ["user_id"], name: "index_tasks_on_user_id"
     t.index ["user_service_id"], name: "index_tasks_on_user_service_id"
