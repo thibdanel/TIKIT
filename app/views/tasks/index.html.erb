@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Task#index</h1>
+
+    <ol>
+      <% @tasks.each do |task| %>
+      <li><%= task.title %> | <%= task.description %> | <%= task.end_date %> | <%= task.done %></li>
+      <% end %>
+    </ol>
+
+  <%# <%= simple_form_for [ @task, @user_service ] do |f| %>
+  <%# <%= f.input :title %>
+  <%# <%= f.input :description %>
+  <%# <%= f.input :end_date %>
+  <%# <%= f.submit "Add Task", class: "btn btn-primary" %>
+  <%# <% end %>
+</div>
