@@ -5,3 +5,46 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts " deleting all user_services"
+UserService.destroy_all
+puts "user_service clean"
+
+puts " deleting all Users"
+User.destroy_all
+puts "user clean"
+
+puts " deleting all services"
+Service.destroy_all
+puts "service clean"
+
+puts "creating services"
+
+service1 = Service.new(name: "Pôle emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "20447B")
+service2 = Service.new(name: "Impots", description: "Ne manquez pas vos RDV fiscaux!", color: "004B6C")
+service3 = Service.new(name: "CAF", description: "Un papier? Une attestation, on vous dit tout", color: "73AFD0")
+
+service1.save!
+service2.save!
+service3.save!
+
+puts "#{Service.count} have been created!"
+
+puts "creating users"
+
+user1 = User.create(first_name: "Thibault", last_name: "Danel", password: "azerty", email: "thibault@mail.com")
+user2 = User.create(first_name: "Yassine", last_name: "Allaouna", password: "azerty", email: "yassine@mail.com")
+user3 = User.create(first_name: "Hugo", last_name: "H", password: "azerty", email: "hugo@mail.com")
+
+puts "#{User.count} have been created!"
+
+puts "creating user-services"
+
+user_service1 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "Lille", service: service1, user: user1)
+user_service2 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "Lens", service: service2, user: user1)
+user_service3 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "St Quentin", service: service3, user: user1)
+user_service1.save!
+user_service2.save!
+user_service3.save!
+
+puts "#{UserService.count} have been created!"
