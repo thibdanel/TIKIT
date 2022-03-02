@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Tasks", "#", class: "nav-link-new" %>
+            <%= link_to "Tasks", tasks_path, class: "nav-link-new" %>
           </li>
           <li class="nav-item">
             <%= link_to "Services", "#", class: "nav-link-new" %>
