@@ -6,7 +6,7 @@ class UserServicesController < ApplicationController
   end
 
   def edit
-    @user_service = UserService.new(params[service_id])
+    @user_service = UserService.new(params[:service_id])
   end
 
   def destroy
