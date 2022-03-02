@@ -1,12 +1,91 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  margin-right: 28px;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  height: 40px;
+}
+
+.navbar-brand-new {
+  font-family: 'Poppins' sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000000;
+  margin-left: 28px;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-new {
+  font-family: 'Poppins' sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0077C0;
+  border: 2px solid #0077C0;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin-right: 40px;
+  transition: 0.3s;
+}
+
+.nav-link-new:hover {
+  color: #FFFFFF;
+  background-color: #0077C0;
+  transition: 0.3s;
+}
+
+.nav-link-new-user {
+  font-family: 'Poppins' sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #0077C0;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin-right: 40px;
+  transition: 0.3s;
+  color: #FFFFFF;
+  background-color: #0077C0;
+  transition: 0.3s;
+}
+
+.nav-link-new-user:hover {
+  color: #0077C0;
+  background-color: #FFFFFF;
+  transition: 0.3s;
+}
+
+.user-container {
+  width: 90px;
+  height: 60px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-container .avatar {
+  border-radius: 8px !important;
+}
+
+.user-container i {
+  margin-left: 8px;
+}
+
+.dropdown-menu.show {
+  margin-top: 15px;
+  border-radius: 8px;
 }
