@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_02_101114) do
+ActiveRecord::Schema.define(version: 2022_03_02_103024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "service_tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "offset_day"
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_service_tasks_on_service_id"
+  end
 
   create_table "services", force: :cascade do |t|
     t.string "name"
@@ -21,6 +31,32 @@ ActiveRecord::Schema.define(version: 2022_03_02_101114) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "user_service_id", null: false
+    t.boolean "done"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.index ["user_service_id"], name: "index_tasks_on_user_service_id"
+  end
+
+  create_table "user_services", force: :cascade do |t|
+    t.string "contact_email"
+    t.string "contact_phone"
+    t.string "contact_name"
+    t.string "contact_address"
+    t.bigint "service_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_user_services_on_service_id"
+    t.index ["user_id"], name: "index_user_services_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +73,9 @@ ActiveRecord::Schema.define(version: 2022_03_02_101114) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "service_tasks", "services"
+  add_foreign_key "tasks", "user_services"
+  add_foreign_key "tasks", "users"
+  add_foreign_key "user_services", "services"
+  add_foreign_key "user_services", "users"
 end
