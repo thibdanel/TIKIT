@@ -14,7 +14,6 @@ class TasksController < ApplicationController
     @service = Service.find(@user_service.service_id)
     @task.user_service = @user_service
     @task.user = current_user
-
     if @task.save!
       redirect_to tasks_path(@task)
     else
@@ -22,15 +21,19 @@ class TasksController < ApplicationController
     end
   end
 
-  # def edit
-  #   @task = Task.find(params[:id])
-  # end
+  def edit
+    @task = Task.find(params[:id])
+  end
 
-  # def update
-  #   @task = Task.find(params[:id])
-  #   @task.update(task_params)
-  #   redirect_to task_path
-  # end
+  def update
+    @task = Task.find(params[:id])
+    @user_service = UserService.find(params[:task][:user_service_id])
+    @service = Service.find(@user_service.service_id)
+    @task.user_service = @user_service
+    @task.user = current_user
+    @task.update(task_params)
+    redirect_to tasks_path
+  end
 
   # def destroy
   #   @task = Task.find(params[:id])
