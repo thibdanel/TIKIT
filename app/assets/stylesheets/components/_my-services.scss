@@ -1,0 +1,165 @@
+// My services - Container
+
+.my-services {
+  padding: 0 200px;
+}
+
+// My services - Title
+
+.my-services h2 {
+  margin-top: 50px;
+  font-family: 'Poppins' sans-serif;
+  font-size: 48px;
+}
+
+// My services - Row
+
+.row.services-row {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+// My services - Cards
+
+.cards-services {
+  display: flex;
+  justify-content: space-between;
+}
+
+// My services - Card
+
+.card-services {
+  background-color: #FFFFFF;
+  width: 400px;
+  border-top: 24px solid #20447B;
+  border-radius: 12px;
+  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
+}
+
+// My services - Card - Name + Logo
+
+.card-services .name-service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 30px 10px 30px;
+  height: 90px;
+}
+
+// My services - Card - Name
+
+.card-services .name-service .service-name {
+  width: 200px;
+  font-family: "Inter" sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #000000;
+  line-height: 38px;
+}
+
+// My services - Card - Logo
+
+
+.card-services .name-service .logo-service {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #E8E8E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// My services - Card - Logo > img
+
+.card-services .logo-service img {
+  object-fit: contain;
+  width: 48px;
+  height: 48px;
+  z-index: -1;
+}
+
+// My services - Card - Line
+
+.card-services #line {
+  margin: 0px 0px 0px 30px;
+  width: 50px;
+  height: 5px;
+  border-radius: 30px;
+  opacity: 1;
+  color: #20447B;
+}
+
+// My services - Card - Options
+
+.options-service {
+  display: flex;
+  align-items: center;
+  margin: 16px 30px;
+  justify-content: space-between;
+}
+
+// My services - Card - Options > Informations
+
+.options-service p {
+  margin: 0;
+  font-family: "Inter" sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+// My services - Card - Options > Edit
+
+.options-service .options .fas.fa-pen {
+  margin-right: 15px;
+}
+
+// My services - Card - Options > Delete
+
+.card-services-infos {
+  margin: 22px 30px;
+}
+
+// My services - Card - Line2
+
+.card-services #line2 {
+  margin: 0 auto;
+  width: 85%;
+  opacity: 1;
+  color: #E8E8E8;
+}
+
+.card-services-infos i {
+  margin-right: 10px;
+}
+
+//////////
+//////////
+//////////
+
+// Available services
+
+// My services - Container
+
+.available-services {
+  padding: 0 200px;
+}
+
+// My services - Title
+
+.available-services h2 {
+  margin-top: 50px;
+  font-family: 'Poppins' sans-serif;
+  font-size: 48px;
+}
+
+// My services - Row
+
+.row.services-row {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+
+}

@@ -1,47 +1,68 @@
-<div class="banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <div class="macaron">
-          <h2><%= current_user.tasks.count %></h2>
-          <p>Toutes les taches</p>
-        </div>
+<div class="banner-statistics">
+  <div class="row statistics-row">
+    <div class="col-4">
+      <div class="macaron">
+        <h2><%= current_user.tasks.count %></h2>
+        <p>Toutes les tâches</p>
       </div>
-      <div class="col-4">
-        <div class="macaron">
-          <p>Taches effectuées</p>
-        </div>
+    </div>
+    <div class="col-4">
+      <div class="macaron">
+        <h2><%= current_user.tasks.count %></h2>
+        <p>Tâches effectuées</p>
       </div>
-      <div class="col-4">
-        <div class="macaron">
-          <p>Taches en attente</p>
-        </div>
+    </div>
+    <div class="col-4">
+      <div class="macaron">
+        <h2><%= current_user.tasks.count %></h2>
+        <p>Tâches en attente</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
 
-  <div class="container">
-    <h1>Mes services</h1>
-      <div class="row">
-        <div class="cards">
-          <% @user_services.each do |user_service| %>
-            <div class="card-product">
-              <img src="https://www.e-carion.com/wp-content/uploads/2016/04/logo-impots-gouv.jpg" />
-                <div class="card-product-infos">
-                  <h2><%= link_to user_service.service.name, user_service_path(user_service) %></h2>
-                  <p>Name: <%= user_service.contact_name %> </p>
-                  <p>Tel: <%= user_service.contact_phone %> </p>
-                  <p>Mail: <%= user_service.contact_email %> </p>
-                </div>
-              <p><%= link_to "Edit", edit_user_service_path(user_service)%> </p>
-              <p><%= link_to "Delete", user_service_path(user_service), method: :delete %></p>
+<div class="my-services">
+  <h2>Mes services</h2>
+    <div class="row services-row">
+      <div class="cards-services">
+        <% @user_services.each do |user_service| %>
+          <div class="card-services">
+            <div class="name-service">
+              <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
+              <div class="logo-service">
+                <%= image_tag "poleemploi.png" %>
+              </div>
             </div>
-          <% end %>
-        </div>
+            <hr id="line">
+            <div class="options-service">
+              <p>Vos informations</p>
+              <div class="options">
+                <i class="fas fa-pen"></i>
+                <i class="fas fa-trash"></i>
+              </div>
+            </div>
+            <hr id="line2">
+            <div class="card-services-infos">
+              <p id="contact-name"><i class="fas fa-user-alt"></i> <%= user_service.contact_name %> </p>
+              <p id="telephone"><i class="fas fa-phone-alt"></i> <%= user_service.contact_phone %> </p>
+              <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
+              <p> <i class="fas fa-check"></i> Tâches réalisés</p>
+            </div>
+            <p><%#= link_to "Edit", edit_service_path(service) %></p>
+            <p><%#= link_to "Delete", service_path(service), method: :delete %></p>
+          </div>
+        <% end %>
       </div>
+    </div>
+</div>
+
+
+  <div class="available-services">
+    <h2>Services disponibles</h2>
+    <div class="row services-row">
+      <p>Coucou</p>
+    </div>
   </div>
 
   <div class="container">
@@ -60,4 +81,5 @@
         </div>
       </div>
   <%= link_to "Create your own service", new_user_service_path(@user_service), class: 'btn btn-primary' %>
+
 </div>
