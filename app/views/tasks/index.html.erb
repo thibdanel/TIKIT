@@ -6,12 +6,12 @@
         <% @user_service.each do |user_service| %>
           <div class="card-product-task">
             <div class="card-product-infos">
-              <h2><%= user_service.service.name %></h2>
+              <h1><%= user_service.service.name %></h1>
                   <% uniq_user_service = [] %>
                   <% @user_service.filter %>
                   <% user_service.tasks << uniq_user_service %>
                       <% user_service.tasks.each do |task| %>
-                        <h1><%= task.title %> </h1>
+                        <p><%= task.done %> <%= task.title %>  </p>
                       <% end %>
                   <%= link_to  "+", new_user_service_task_path(user_service) %>
                   <%= link_to "edit" %>
@@ -22,4 +22,23 @@
   </div>
 
   <h2>Your Services </h2>
+
+   <div class="row">
+    <div class="cards">
+        <% @user_service.each do |user_service| %>
+          <div class="card-product-task">
+            <div class="card-product-infos">
+              <h1><%= user_service.service.name %></h1>
+                  <% uniq_user_service = [] %>
+                  <% @user_service.filter %>
+                  <% user_service.tasks << uniq_user_service %>
+                      <% user_service.tasks.each do |task| %>
+                        <p><%= task.title %> </p>
+                      <% end %>
+                  <%= link_to  "+", new_user_service_task_path(user_service) %>
+                  <%= link_to "edit" %>
+            </div>
+          </div>
+        <% end %>
+    </div>
 </div>
