@@ -1,1 +1,12 @@
-<%= render "form" %>
+<div class="container">
+
+  <h1>Editer la tâche</h1>
+  <%= simple_form_for(@task) do |f| %>
+  <%= f.input :done %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, "#{@action}", class: "btn btn-primary" %>
+  <% end %>
+
+</div>

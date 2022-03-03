@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_services, only: [:destroy, :update, :edit, :show, :index] do
-    resources :tasks, only: [:new, :create ]
+    resources :tasks, only: [:new, :create, :edit, :update ]
   end
 
   resources :tasks, only: [:edit, :update, :destroy, :index, :new, :create]
