@@ -24,7 +24,7 @@ puts "service clean"
 
 puts "creating services"
 
-service1 = Service.new(name: "Pôle emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "20447B")
+service1 = Service.new(name: "Pôle-e", description: "Ne soyez jamais en retard dans vos taches administratives", color: "20447B")
 service2 = Service.new(name: "Impots", description: "Ne manquez pas vos RDV fiscaux!", color: "004B6C")
 service3 = Service.new(name: "CAF", description: "Un papier? Une attestation, on vous dit tout", color: "73AFD0")
 service4 = Service.new(name: "Mutuelle", description: "Un remboursement à suivre? on vous le rappelle!", color: "73AFD0")
@@ -68,3 +68,23 @@ user_service8.save!
 user_service9.save!
 
 puts "#{UserService.count} have been created!"
+
+puts "Creating Tasks"
+
+task1 = Task.new(user_service: user_service1, user: user1, title: 'envoyer attestation', description: 'urgent pour renouvelement de droits')
+task2 = Task.new(user_service: user_service2, user: user2, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits')
+task3 = Task.new(user_service: user_service3, user: user3, title: 'inscription', description: 'urgent pour renouvelement de droits')
+task4 = Task.new(user_service: user_service1, user: user1, title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits')
+task5 = Task.new(user_service: user_service2, user: user2, title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits')
+task6 = Task.new(user_service: user_service3, user: user3, title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits')
+task7 = Task.new(user_service: user_service1, user: user1, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', done: true)
+
+task1.save!
+task2.save!
+task3.save!
+task4.save!
+task5.save!
+task6.save!
+task7.save!
+
+puts "#{Task.count} have been created!"
