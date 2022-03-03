@@ -31,7 +31,13 @@ class TasksController < ApplicationController
     @service = Service.find(@user_service.service_id)
     @task.user_service = @user_service
     @task.user = current_user
-    @task.update(task_params)
+    if @task.update(task_params)
+      redirect_to tasks_path(@task)
+    else
+      render :edit
+    end
+
+
     redirect_to tasks_path
   end
 
