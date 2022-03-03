@@ -1,0 +1,7 @@
+<%= simple_form_for(@task) do |f| %>
+  <%= f.association :user_service, label_method: :contact_email %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, "#{@action}", class: "btn btn-primary" %>
+  <% end %>

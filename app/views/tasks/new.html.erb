@@ -2,11 +2,5 @@
   <h1>Créer une nouvelle tâche</h1>
 
 
-  <%= simple_form_for(@task) do |f| %>
-  <%= f.association :user_service, label_method: :contact_email %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :end_date %>
-  <%= f.submit "Add Task", class: "btn btn-primary" %>
-  <% end %>
+<%= render "form" %>
 </div>
