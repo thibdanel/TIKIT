@@ -6,6 +6,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @action = "Add your Task"
   end
 
   def create
@@ -17,12 +18,14 @@ class TasksController < ApplicationController
     if @task.save!
       redirect_to tasks_path(@task)
     else
+      @action = "Add your Task"
       render :new
     end
   end
 
   def edit
     @task = Task.find(params[:id])
+    @action = "Update your Task"
   end
 
   def update
@@ -34,11 +37,9 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path(@task)
     else
+      @action = "Update your Task"
       render :edit
     end
-
-
-    redirect_to tasks_path
   end
 
   # def destroy
