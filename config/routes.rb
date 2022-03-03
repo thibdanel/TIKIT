@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :services
-    # resources :user_service, only: [:new, :create]
+  resources :services do
+    resources :user_services, only: [:new, :create]
+  end
 
-  resources :user_services, only: [:destroy, :update, :edit, :show, :index, :new] do
+  resources :user_services, only: [:destroy, :update, :edit, :show, :index] do
     resources :tasks, only: [:new, :create ]
   end
 

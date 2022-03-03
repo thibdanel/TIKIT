@@ -18,8 +18,20 @@ class UserServicesController < ApplicationController
 
   def new
     @user_service = UserService.new
-    @service = Service.new
+    @service = Service.find(params[:service_id])
+    # @user_service.service = @service
+  end
+
+  def create
+    @user_service = UserService.new(user_service_params)
+    @service = Service.find(params[:service_id])
     @user_service.service = @service
+    @user_service.user = current_user
+    if @user_service.save
+      redirect_to user_services_path
+    else
+      render :new
+    end
   end
 
   def update

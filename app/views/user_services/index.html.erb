@@ -25,35 +25,35 @@
 <div class="my-services">
   <h2>Mes services</h2>
     <div class="row services-row">
-      <div class="cards-services">
         <% @user_services.each do |user_service| %>
-          <div class="card-services">
-            <div class="name-service">
-              <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
-              <div class="logo-service">
-                <%= image_tag "poleemploi.png" %>
+          <div class="col-4">
+            <div class="card-services">
+              <div class="name-service">
+                <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
+                <div class="logo-service">
+                  <%= image_tag "poleemploi.png" %>
+                </div>
               </div>
-            </div>
-            <hr id="line">
-            <div class="options-service">
-              <p>Vos informations</p>
-              <div class="options">
-                <i class="fas fa-pen"></i>
-                <i class="fas fa-trash"></i>
+              <hr id="line">
+              <div class="options-service">
+                <p>Vos informations</p>
+                <div class="options">
+                  <i class="fas fa-pen"></i>
+                  <i class="fas fa-trash"></i>
+                </div>
               </div>
+              <hr id="line2">
+              <div class="card-services-infos">
+                <p id="contact-name"><i class="fas fa-user-alt"></i> <%= user_service.contact_name %> </p>
+                <p id="telephone"><i class="fas fa-phone-alt"></i> <%= user_service.contact_phone %> </p>
+                <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
+                <p> <i class="fas fa-check"></i> Tâches réalisés</p>
+              </div>
+              <p><%#= link_to "Edit", edit_service_path(service) %></p>
+              <p><%#= link_to "Delete", service_path(service), method: :delete %></p>
             </div>
-            <hr id="line2">
-            <div class="card-services-infos">
-              <p id="contact-name"><i class="fas fa-user-alt"></i> <%= user_service.contact_name %> </p>
-              <p id="telephone"><i class="fas fa-phone-alt"></i> <%= user_service.contact_phone %> </p>
-              <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
-              <p> <i class="fas fa-check"></i> Tâches réalisés</p>
-            </div>
-            <p><%#= link_to "Edit", edit_service_path(service) %></p>
-            <p><%#= link_to "Delete", service_path(service), method: :delete %></p>
           </div>
         <% end %>
-      </div>
     </div>
 </div>
 
@@ -75,11 +75,9 @@
                 <div class="card-product-infos">
                   <h2><%= link_to service.name, service_path(service) %></h2>
                 </div>
-              <p><%= link_to "Add", edit_service_path(service)%> </p>
+              <p><%= link_to "Add", new_service_user_service_path(service)%> </p>
             </div>
           <% end %>
         </div>
       </div>
-  <%= link_to "Create your own service", new_user_service_path(@user_service), class: 'btn btn-primary' %>
-
 </div>
