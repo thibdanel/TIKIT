@@ -2,6 +2,11 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.where(user: current_user).order(:end_date)
     @user_service = current_user.user_services
+    @service = Service.where(user: current_user)
+    @services = @tasks.map do |task|
+                  task.user_service.service.name
+                end
+    @services.uniq!
   end
 
   def new
@@ -42,11 +47,11 @@ class TasksController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @task = Task.find(params[:id])
-  #   @task.destroy
-  #   redirect_to tasks_path
-  # end
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to tasks_path
+  end
 
   private
 

@@ -1,11 +1,41 @@
 <div class="container">
-  <h1>Task#index</h1>
+  <h2>Essentials</h2>
 
-    <ol>
-      <% @tasks.each do |task| %>
-      <li><%= task.title %> | <%= task.description %> | <%= task.end_date %> | <%= task.done %></li>
+<div class="row">
+  <div class="cards">
+<%# ------------ITERER SUR LES USER_SERVICE----------------- %>
+<%# ------------SUR LES USER_SERVICE-------------  %>
+<%# Recupérer toutes les tâches associées à un seul service
+    (ex: toutes les user_services liées à Pole emploi doivent se trouver dans la carte du même nom) %>
+<%#------------ itération sur les tâches récupérées pour chaque service -----------  %>
+<%# -----------Afficher les tâches dans les cards des services correspondants----------- %>
+<%#  @user_service.each do |user_service|
+      uniq_user_service = []
+      user_service.filter(Service.find_by(name: service))
+      user_service.tasks
+      end %>
+
+      <% @services.each do |service| %>
+        <div class="card-product-task">
+          <div class="card-product-infos">
+          <%=  @user_service.each do |user_service|
+               uniq_user_service = []
+               @user_service.filter
+
+
+
+
+          end %>
+          <%=  user_service.tasks.each do |task|
+               task.title
+               end %>
+
+            <h2><%= service %></h2>
+          </div>
+        </div>
       <% end %>
-    </ol>
+  </div>
+</div>
 
-
+  <h2>Your Services </h2>
 </div>

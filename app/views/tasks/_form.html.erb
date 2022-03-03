@@ -1,4 +1,5 @@
 <%= simple_form_for(@task) do |f| %>
+  <%= f.input :done %>
   <%= f.association :user_service, label_method: :contact_email %>
   <%= f.input :title %>
   <%= f.input :description %>
