@@ -24,14 +24,14 @@
 
 .cards-services {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 // My services - Card
 
 .card-services {
-  background-color: #FFFFFF;
   width: 400px;
+  background-color: #FFFFFF;
   border-top: 24px solid #20447B;
   border-radius: 12px;
   filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
@@ -53,7 +53,7 @@
   width: 200px;
   font-family: "Inter" sans-serif;
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   color: #000000;
   line-height: 38px;
@@ -119,7 +119,8 @@
 // My services - Card - Options > Delete
 
 .card-services-infos {
-  margin: 22px 30px;
+  margin: 0px 30px;
+  padding: 22px 0px;
 }
 
 // My services - Card - Line2
@@ -162,4 +163,66 @@
   display: flex;
   align-items: center;
 
+}
+
+.card-available-services {
+  width: 400px;
+  background-color: #FFFFFF;
+  border-top: 24px solid #E50028;
+  border-radius: 12px;
+  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.25));
+}
+
+.card-available-services .card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 30px;
+}
+
+// Available - Card - Logo
+
+.card-available-services .card-top .logo-service {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #E8E8E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Available services - Card - Logo > img
+
+.card-available-services .card-top .logo-service img {
+  object-fit: contain;
+  width: 48px;
+  height: 48px;
+  z-index: -1;
+}
+
+.card-available-services .card-top i {
+  color: #000000;
+}
+
+.card-available-services .service-name {
+  font-family: "Inter" sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000000;
+  line-height: 38px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+  padding: 16px 0px;
+}
+
+.card-available-services .card-bottom {
+  padding-bottom: 16px;
+}
+
+.card-available-services .card-bottom p {
+  margin-bottom: 0;
 }
