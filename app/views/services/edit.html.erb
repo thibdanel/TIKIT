@@ -1,1 +1,10 @@
 <h1>edit a service</h1>
+
+<div class="container">
+    <%= simple_form_for (@user_service) do |f| %>
+    <%= f.input :contact_name  %>
+    <%= f.input :contact_phone %>
+    <%= f.input :contact_email %>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+  <%end  %>
+</div>

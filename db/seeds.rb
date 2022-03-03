@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+
 puts " deleting all user_services"
 UserService.destroy_all
 puts "user_service clean"
@@ -40,9 +43,9 @@ puts "#{User.count} have been created!"
 
 puts "creating user-services"
 
-user_service1 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "Lille", service: service1, user: user1)
-user_service2 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "Lens", service: service2, user: user1)
-user_service3 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "St Quentin", service: service3, user: user1)
+user_service1 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user1)
+user_service2 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user1)
+user_service3 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user1)
 user_service1.save!
 user_service2.save!
 user_service3.save!
