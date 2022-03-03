@@ -8,5 +8,7 @@ class User < ApplicationRecord
   # validates :last_name, presence: true
   validates :email, presence: true
   has_many :user_services, dependent: :destroy
+  has_many :services, through: :user_services
   has_many :tasks
+
 end
