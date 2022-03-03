@@ -36,8 +36,8 @@
                   <p>Tel: <%= user_service.contact_phone %> </p>
                   <p>Mail: <%= user_service.contact_email %> </p>
                 </div>
-              <p><%#= link_to "Edit", edit_service_path(service) %></p>
-              <p><%#= link_to "Delete", service_path(service), method: :delete %></p>
+              <p><%= link_to "Edit", edit_user_service_path(user_service)%> </p>
+              <p><%= link_to "Delete", user_service_path(user_service), method: :delete %></p>
             </div>
           <% end %>
         </div>
@@ -46,10 +46,18 @@
 
   <div class="container">
     <h1>Services disponibles</h1>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Mutuelle</h5>
+       <div class="row">
+        <div class="cards">
+          <% @services.each do |service| %>
+            <div class="card-product">
+              <img src="https://www.e-carion.com/wp-content/uploads/2016/04/logo-impots-gouv.jpg" />
+                <div class="card-product-infos">
+                  <h2><%= link_to service.name, service_path(service) %></h2>
+                </div>
+              <p><%= link_to "Add", edit_service_path(service)%> </p>
+            </div>
+          <% end %>
         </div>
-    </div>
-  <%= link_to "Create your own service", new_service_path(@service), class: 'btn btn-primary' %>
+      </div>
+  <%= link_to "Create your own service", new_user_service_path(@user_service), class: 'btn btn-primary' %>
 </div>

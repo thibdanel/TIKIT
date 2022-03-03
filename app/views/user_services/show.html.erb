@@ -1,18 +1,14 @@
-<h1> show Service</h1>
-
 <div class="container">
-  <h2>Name: <%= @service.name %></h2>
-  <h4>Description: <%= @service.description %></h4>
-  <h3>Votre contact:</h3>
-  <p>Contact name: <%= @user_service.contact_name%></p>
-  <p>Contact mail: <%= @user_service.contact_email%></p>
-  <p>Contact phone: <%= @user_service.contact_phone%></p>
-  <p>Contact adresse: <%= @user_service.contact_address%></p>
+  <h2>Service choisi: <%= @service.name %></h2>
+  <p><%= @service.description %></p>
+    <h5>Votre contact:</h5>
+    <p>Contact name: <%= @user_service.contact_name%></p>
+    <p>Contact mail: <%= @user_service.contact_email%></p>
+    <p>Contact phone: <%= @user_service.contact_phone%></p>
+    <p>Contact adresse: <%= @user_service.contact_address%></p>
 
-  <div style="width: 60%; height: 300px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @marker.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
+    <div style="width: 60%; height: 300px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @marker.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
