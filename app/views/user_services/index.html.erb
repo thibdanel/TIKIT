@@ -47,8 +47,12 @@
               <div class="options-service">
                 <p>Vos informations</p>
                 <div class="options">
-                  <i class="fas fa-pen"></i>
-                  <i class="fas fa-trash"></i>
+                  <%= link_to edit_user_service_path(user_service) do %>
+                    <i class="fas fa-pen"></i>
+                  <% end %>
+                  <%= link_to user_service_path(user_service), method: :delete do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
                 </div>
               </div>
               <hr id="line2">
@@ -92,12 +96,12 @@
           <div class="card-top">
             <div class="logo-service">
             </div>
-            <%# link_to new_service_user_service_path(@service) do %>
-              <%# <i class="fas fa-plus"></i> %>
-            <%# <% end %>
+            <%= link_to new_service_path do %>
+              <i class="fas fa-plus"></i>
+            <%  end %>
           </div>
           <div class="card-bottom">
-            <p class="service-name">Créez votre propre service</p>
+            <p class="service-name">Créez votre service</p>
           </div>
         </div>
       </div>

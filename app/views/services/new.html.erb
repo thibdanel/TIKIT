@@ -1,10 +1,9 @@
 <div class="container">
 
-    <%= simple_form_for (@user_service) do |f| %>
-    <%= f.input :contact_name  %>
-    <%= f.input :contact_phone %>
-    <%= f.input :contact_email %>
-    <%= f.input :contact_address %>
+    <%= simple_form_for (@service) do |f| %>
+    <%= f.input :name  %>
+    <%= f.input :description %>
+    <%= f.input :color %>
     <%= f.submit "Submit", class: 'btn btn-primary' %>
     <%end  %>
 </div>
