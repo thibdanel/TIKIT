@@ -1,8 +1,9 @@
-<h2> Créer ton propre serice!</h2>
+<h2> <%= @service.name %></h2>
+<h4> <%= @service.description %>  </h4>
 
 <div class="container">
 
-    <%= simple_form_for [@user_service] do |f| %>
+    <%= simple_form_for [@service, @user_service] do |f| %>
     <%= f.input :contact_name  %>
     <%= f.input :contact_phone %>
     <%= f.input :contact_email %>

@@ -1,11 +1,25 @@
 <div class="container">
-  <h1>Task#index</h1>
+  <h2>Essentials</h2>
 
-    <ol>
-      <% @tasks.each do |task| %>
-      <li><%= task.title %> | <%= task.description %> | <%= task.end_date %> | <%= task.done %></li>
-      <% end %>
-    </ol>
+  <div class="row">
+    <div class="cards">
+        <% @user_service.each do |user_service| %>
+          <div class="card-product-task">
+            <div class="card-product-infos">
+              <h2><%= user_service.service.name %></h2>
+                  <% uniq_user_service = [] %>
+                  <% @user_service.filter %>
+                  <% user_service.tasks << uniq_user_service %>
+                      <% user_service.tasks.each do |task| %>
+                        <h1><%= task.title %> </h1>
+                      <% end %>
+                  <%= link_to  "+", new_user_service_task_path(user_service) %>
+                  <%= link_to "edit" %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
 
-
+  <h2>Your Services </h2>
 </div>

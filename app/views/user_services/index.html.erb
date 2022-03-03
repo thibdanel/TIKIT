@@ -2,19 +2,28 @@
   <div class="row statistics-row">
     <div class="col-4">
       <div class="macaron">
+          <% tasks_done = []%>
+          <% tasks_pending = []%>
+          <% current_user.tasks.each do |task|  %>
+            <% if task.done == true  %>
+              <% tasks_done << task.done  %>
+              <% else %>
+              <% tasks_pending << task.done  %>
+              <% end  %>
+            <% end  %>
         <h2><%= current_user.tasks.count %></h2>
         <p>Toutes les tâches</p>
       </div>
     </div>
     <div class="col-4">
       <div class="macaron">
-        <h2><%= current_user.tasks.count %></h2>
+        <h2><%=tasks_done.size %></h2>
         <p>Tâches effectuées</p>
       </div>
     </div>
     <div class="col-4">
       <div class="macaron">
-        <h2><%= current_user.tasks.count %></h2>
+        <h2><%= tasks_pending.size %></h2>
         <p>Tâches en attente</p>
       </div>
     </div>
@@ -73,7 +82,7 @@
               <% end %>
             </div>
             <div class="card-bottom">
-              <%= link_to service.name, service_path(service), class: "service-name" %>
+              <%= link_to service.name, new_service_user_service_path(service), class: "service-name" %>
             </div>
           </div>
         </div>
