@@ -1,41 +1,25 @@
 <div class="container">
   <h2>Essentials</h2>
 
-<div class="row">
-  <div class="cards">
-<%# ------------ITERER SUR LES USER_SERVICE----------------- %>
-<%# ------------SUR LES USER_SERVICE-------------  %>
-<%# Recupérer toutes les tâches associées à un seul service
-    (ex: toutes les user_services liées à Pole emploi doivent se trouver dans la carte du même nom) %>
-<%#------------ itération sur les tâches récupérées pour chaque service -----------  %>
-<%# -----------Afficher les tâches dans les cards des services correspondants----------- %>
-<%#  @user_service.each do |user_service|
-      uniq_user_service = []
-      user_service.filter(Service.find_by(name: service))
-      user_service.tasks
-      end %>
-
-      <% @services.each do |service| %>
-        <div class="card-product-task">
-          <div class="card-product-infos">
-          <%=  @user_service.each do |user_service|
-               uniq_user_service = []
-               @user_service.filter
-
-
-
-
-          end %>
-          <%=  user_service.tasks.each do |task|
-               task.title
-               end %>
-
-            <h2><%= service %></h2>
+  <div class="row">
+    <div class="cards">
+        <% @user_service.each do |user_service| %>
+          <div class="card-product-task">
+            <div class="card-product-infos">
+              <h2><%= user_service.service.name %></h2>
+                  <% uniq_user_service = [] %>
+                  <% @user_service.filter %>
+                  <% user_service.tasks << uniq_user_service %>
+                      <% user_service.tasks.each do |task| %>
+                        <h1><%= task.title %> </h1>
+                      <% end %>
+                  <%= link_to  "+", new_user_service_task_path(user_service) %>
+                  <%= link_to "edit" %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+    </div>
   </div>
-</div>
 
   <h2>Your Services </h2>
 </div>

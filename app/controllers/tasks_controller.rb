@@ -11,15 +11,17 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @user_service = UserService.find(params[:user_service_id])
     @action = "Add your Task"
   end
 
   def create
     @task = Task.new(task_params)
-    @user_service = UserService.find(params[:task][:user_service_id])
+    @user_service = UserService.find(params[:user_service_id])
     @service = Service.find(@user_service.service_id)
     @task.user_service = @user_service
     @task.user = current_user
+
     if @task.save!
       redirect_to tasks_path(@task)
     else
