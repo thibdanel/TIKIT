@@ -48,6 +48,13 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def finished
+    @task = Task.find(params[:id])
+    @task.done = true
+    @task.save
+    redirect_to tasks_path(@task)
+  end
+
   private
 
   def task_params
