@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Créer une nouvelle tâche</h1>
-  <%= simple_form_for(@task) do |f| %>
-  <%= f.input :done %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :end_date %>
-  <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id]} %>
-  <%= f.button :submit, "create", class: "btn btn-primary" %>
-  <% end %>
+  <div class="row edit-us-show">
+    <h1>Créer une nouvelle tâche</h1>
+    <%= simple_form_for(@task) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :end_date %>
+    <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id]} %>
+    <%= f.button :submit, "create", id: "link-us-edit" %>
+    <% end %>
+  </div>
 </div>
