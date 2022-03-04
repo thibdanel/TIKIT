@@ -1,20 +1,24 @@
 <div class="container">
-  <h2 class="h2-task mt-3">Essentials</h2>
+  <h2>Essentials</h2>
 
   <div class="row">
-    <div class="cards mb-3">
+    <div class="cards" >
         <% @user_service.each do |user_service| %>
           <div class="card-product-task">
             <div class="card-product-infos">
-              <h2 class="title-card"><%= user_service.service.name %></h2>
+                <div class="card-product-task-top">
+                  <h2><%= user_service.service.name %></h2>
+                  <%= link_to  "+", new_user_service_task_path(user_service) %>
+                </div>
+                <div class="card-product-task-main">
                   <% uniq_user_service = [] %>
                   <% @user_service.filter %>
                   <% user_service.tasks << uniq_user_service %>
                       <% user_service.tasks.each do |task| %>
-                        <p><%= task.done %> <%= task.title %>  </p>
+                        <p><%= task.title %> <p>
+                        <%= link_to "edit" %>
                       <% end %>
-                  <%= link_to  "+", new_user_service_task_path(user_service) %>
-                  <%= link_to "edit" %>
+                </div>
             </div>
           </div>
         <% end %>
@@ -22,23 +26,4 @@
   </div>
 
   <h2>Your Services </h2>
-
-   <div class="row">
-    <div class="cards">
-        <% @user_service.each do |user_service| %>
-          <div class="card-product-task">
-            <div class="card-product-infos">
-              <h1><%= user_service.service.name %></h1>
-                  <% uniq_user_service = [] %>
-                  <% @user_service.filter %>
-                  <% user_service.tasks << uniq_user_service %>
-                      <% user_service.tasks.each do |task| %>
-                        <p><%= task.title %> </p>
-                      <% end %>
-                  <%= link_to  "+", new_user_service_task_path(user_service) %>
-                  <%= link_to "edit" %>
-            </div>
-          </div>
-        <% end %>
-    </div>
 </div>
