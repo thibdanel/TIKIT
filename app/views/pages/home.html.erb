@@ -4,7 +4,7 @@
       <div class="banner-info">
         <h1>Obtenez toutes vos tâches généré par Tikit.</h1>
         <p>Inscrivez-vous à notre bibliothèque de services et générez toutes vos tâches en un clic que vous soyez un particulier ou une entreprise.</p>
-        <a href="#" class="start">Commencer</a>
+        <%= link_to "Commencer", user_services_path, class: "start" %>
       </div>
     </div>
     <div class="col-6">
@@ -55,7 +55,7 @@
       <div class="explore-info">
         <h2>Tick ta vie</h2>
         <p>Nous avons des experts pour tous les services - le tout sous un même toit ! Vous pouvez trouver tout, des Impôts au Pôle Emploi en passant par la CAF et bien d'autres encore sur Tikit.</p>
-        <a href="#" class="nav-link-new-user">Explorer</a>
+        <%= link_to "Explorer", user_services_path, class: "nav-link-new-user" %>
       </div>
     </div>
     <div class="col-6">
