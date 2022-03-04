@@ -60,7 +60,13 @@
                 <p id="contact-name"><i class="fas fa-user-alt"></i> <%= user_service.contact_name %> </p>
                 <p id="telephone"><i class="fas fa-phone-alt"></i> <%= user_service.contact_phone %> </p>
                 <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
-                <p> <i class="fas fa-check"></i> Tâches réalisés</p>
+                <% tasks_done = []%>
+                <% user_service.tasks.each do |task|  %>
+                <% if task.done == true  %>
+                <% tasks_done << task.done  %>
+                <% end %>
+                <% end %>
+                <p><i class="fas fa-check"></i><%=tasks_done.size %> Tâches réalisées</p>
               </div>
 
             </div>
