@@ -49,7 +49,7 @@
   // grid-gap: 70px;
   // justify-content: space-around;
   overflow: hidden;
-  height: 320px;
+  height: 400px;
   width: 280px;
   background: white;
   box-shadow: 1 4 15px rgba(0,0,0,0.25);
@@ -77,48 +77,25 @@
   padding: 16px;
 }
 
-
-//=========== CARD SHOW USERSERVICE ============
-
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  //=========== TEST ============
-  //width: 1000px;
-  //height: 500px;
-}
-
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-
-.card-trip .card-trip-infos {
-  padding: 16px;
+.title-card{
+  font-size: 20px;
+  color: black;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  position:relative;
+
+
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.card-product-task-top{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  position: relative;
+
+}
+.card-product-task-main{
+  display:flex;
+  align-items: center;
 }
