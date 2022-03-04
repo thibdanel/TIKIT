@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Service choisi: <%= @service.name %></h2>
+  <h3><%= @service.name %></h3>
   <p><%= @service.description %></p>
     <h5>Votre contact:</h5>
     <p>Contact name: <%= @user_service.contact_name%></p>
@@ -7,7 +7,9 @@
     <p>Contact phone: <%= @user_service.contact_phone%></p>
     <p>Contact adresse: <%= @user_service.contact_address%></p>
 
-    <div style="width: 60%; height: 300px;"
+    <%= link_to 'Modifier', edit_user_service_path(@user_service), class: 'btn btn-primary' %>
+
+    <div style="width: 60%; height: 230px;"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @marker.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
