@@ -35,7 +35,7 @@
   <h2>Mes services</h2>
     <div class="row services-row">
         <% @user_services.each do |user_service| %>
-          <div class="col-4">
+          <div class="col-4 mt-4">
             <div class="card-services">
               <div class="name-service">
                 <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
@@ -62,20 +62,21 @@
                 <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
                 <p> <i class="fas fa-check"></i> Tâches réalisés</p>
               </div>
-              <p><%#= link_to "Edit", edit_service_path(service) %></p>
-              <p><%#= link_to "Delete", service_path(service), method: :delete %></p>
+
             </div>
           </div>
         <% end %>
     </div>
+    <hr>
 </div>
+
 
 
   <div class="available-services">
     <h2>Services disponibles</h2>
     <div class="row services-row">
       <% @services.each do |service| %>
-        <div class="col-4">
+        <div class="col-4 mt-4">
           <div class="card-available-services">
             <div class="card-top">
               <div class="logo-service">
@@ -91,7 +92,7 @@
           </div>
         </div>
       <% end %>
-      <div class="col-4">
+      <div class="col-4 mt-4">
         <div class="card-available-services">
           <div class="card-top">
             <div class="logo-service">
