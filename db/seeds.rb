@@ -29,7 +29,7 @@ service2 = Service.new(name: "Impôts", description: "Ne manquez pas vos RDV fis
 service3 = Service.new(name: "CAF", description: "Un papier? Une attestation, on vous dit tout", color: "#73AFD0")
 service4 = Service.new(name: "Mutuelle", description: "Un remboursement à suivre? on vous le rappelle!", color: "#E50028")
 service5 = Service.new(name: "La poste", description: "Un envoie important en attente? Venez, on vous aide à le suivre", color: "#FCD20B")
-service6 = Service.new(name: "Mairie", description: "Un projet sympa? dite le nous!", color: "#0cadb7")
+service6 = Service.new(name: "Mairie", description: "Un projet sympa? dites le nous!", color: "#0cadb7")
 
 service1.save!
 service2.save!
