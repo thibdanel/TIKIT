@@ -1,16 +1,20 @@
-<div class="container">
-  <h3><%= @service.name %></h3>
-  <p><%= @service.description %></p>
-    <h5>Votre contact:</h5>
-    <p>Contact name: <%= @user_service.contact_name%></p>
-    <p>Contact mail: <%= @user_service.contact_email%></p>
-    <p>Contact phone: <%= @user_service.contact_phone%></p>
-    <p>Contact adresse: <%= @user_service.contact_address%></p>
+<div class="container-US-show">
+  <div class="row US-show">
+    <div class="col-7">
+      <h3><%= @service.name %></h3>
+        <hr id="line">
+          <p><%= @service.description %></p>
+          <p><i class="fas fa-user-alt"> - </i> <%= @user_service.contact_name%></p>
+          <p><i class="fas fa-envelope"> - </i> <%= @user_service.contact_email%></p>
+          <p><i class="fas fa-phone-alt"> - </i> <%= @user_service.contact_phone%></p>
+          <p><i class="fas fa-map-marker-alt"> - </i> <%= @user_service.contact_address%></p>
+    </div>
+    <div class="col-5">
+      <div style="width: 100%; height: 350px; border-radius: 5px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @marker.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
 
-    <%= link_to 'Modifier', edit_user_service_path(@user_service), class: 'btn btn-primary' %>
-
-    <div style="width: 60%; height: 230px;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @marker.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
