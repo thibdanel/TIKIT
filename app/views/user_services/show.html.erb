@@ -8,6 +8,13 @@
           <p><i class="fas fa-envelope"> - </i> <%= @user_service.contact_email%></p>
           <p><i class="fas fa-phone-alt"> - </i> <%= @user_service.contact_phone%></p>
           <p><i class="fas fa-map-marker-alt"> - </i> <%= @user_service.contact_address%></p>
+          <% tasks_done = [] %>
+            <% @user_service.tasks.each do |task|  %>
+              <% if task.done == true  %>
+              <% tasks_done << task.done  %>
+              <% end %>
+            <% end %>
+        <p><i class="fas fa-check"> - </i> <%=tasks_done.size %> Tâches réalisées</p>
     </div>
     <div class="col-5">
       <div style="width: 100%; height: 350px; border-radius: 5px;"
