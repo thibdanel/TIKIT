@@ -1,0 +1,37 @@
+.row.edit-us-show{
+
+  margin: 40px 150px;
+  padding: 30px 40px 30px 40px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  align-items: end;
+
+}
+
+.row.edit-us-show input{
+  border-radius: 12px;
+}
+.position-logo-service {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.row.edit-us-show .logo-service {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #E8E8E8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.row.edit-us-show .logo-service img {
+  object-fit: contain;
+  width: 42px;
+  height: 42px;
+}
