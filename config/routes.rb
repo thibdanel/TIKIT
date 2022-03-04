@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :tasks, only: [:edit, :update, :destroy, :index, :new, :create]
 
+  patch "tasks/:id/finished", to: 'tasks#finished', as: "task_finished"
+
   # commented routes for checking in the future
 
   # resources :services, only: [:new, :create] #possible d'ajouter suppression update !!!!!!
