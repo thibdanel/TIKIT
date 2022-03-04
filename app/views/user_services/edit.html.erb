@@ -1,10 +1,18 @@
-<h3><%= @user_service.service.name %>  </h3>
 <div class="container">
-    <%= simple_form_for (@user_service) do |f| %>
-    <%= f.input :contact_name  %>
-    <%= f.input :contact_phone %>
-    <%= f.input :contact_email %>
-    <%= f.input :contact_address %>
-    <%= f.submit "Submit", class: 'btn btn-primary' %>
-  <%end  %>
+  <div class="row edit-us-show">
+    <div class="col">
+      <div class="position-logo-service">
+        <div class="logo-service">
+          <%= image_tag "poleemploi.png" %>
+        </div>
+      </div>
+      <%= simple_form_for (@user_service) do |f| %>
+        <%= f.input :contact_name %>
+        <%= f.input :contact_phone %>
+        <%= f.input :contact_email %>
+        <%= f.input :contact_address %>
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      <%end%>
+    </div>
+  </div>
 </div>
