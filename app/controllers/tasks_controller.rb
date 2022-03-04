@@ -11,15 +11,12 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    @user_service = UserService.find(params[:user_service_id])
     @action = "Add your Task"
   end
 
   def create
     @task = Task.new(task_params)
-    @user_service = UserService.find(params[:user_service_id])
-    @service = Service.find(@user_service.service_id)
-    @task.user_service = @user_service
+    @service = Service.find(@task.user_service.service_id)
     @task.user = current_user
 
     if @task.save!
@@ -32,16 +29,11 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
-    @user_service = UserService.find(params[:user_service_id])
     @action = "Update your Task"
   end
 
   def update
     @task = Task.find(params[:id])
-    @user_service = UserService.find(params[:user_service_id])
-    @service = Service.find(@user_service.service_id)
-    @task.user_service = @user_service
-    @task.user = current_user
     if @task.update(task_params)
       redirect_to tasks_path(@task)
     else
@@ -59,6 +51,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :done, :end_date)
+    params.require(:task).permit(:title, :description, :done, :end_date, :user_service_id)
   end
 end
