@@ -16,7 +16,7 @@
                   <% user_service.tasks << uniq_user_service %>
                       <% user_service.tasks.each do |task| %>
                         <p><%= task.title %> <p>
-                        <%= link_to "edit" %>
+                        <%= link_to "edit", edit_user_service_task_path(user_service,task) %>
                       <% end %>
                 </div>
             </div>

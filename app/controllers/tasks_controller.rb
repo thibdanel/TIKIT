@@ -32,12 +32,13 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @user_service = UserService.find(params[:user_service_id])
     @action = "Update your Task"
   end
 
   def update
     @task = Task.find(params[:id])
-    @user_service = UserService.find(params[:task][:user_service_id])
+    @user_service = UserService.find(params[:user_service_id])
     @service = Service.find(@user_service.service_id)
     @task.user_service = @user_service
     @task.user = current_user

@@ -1,6 +1,10 @@
 <div class="container">
   <h1>Créer une nouvelle tâche</h1>
-
-
-<%= render "form" %>
+  <%= simple_form_for(@task) do |f| %>
+  <%= f.input :done %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, "create", class: "btn btn-primary" %>
+  <% end %>
 </div>
