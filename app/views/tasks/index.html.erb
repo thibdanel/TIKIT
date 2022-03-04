@@ -15,7 +15,7 @@
                   <% @user_service.filter %>
                   <% user_service.tasks << uniq_user_service %>
                       <% user_service.tasks.each do |task| %>
-                        <p><%= task.title %> <p>
+                        <p><%= task.done %><%= task.title %> <p>
                         <%= link_to "edit", edit_user_service_task_path(user_service,task) %>
                       <% end %>
                 </div>

@@ -1,11 +1,10 @@
 <div class="container">
-
-  <%= simple_form_for([@user_service, @task]) do |f| %>
-  <%= f.input :done %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :end_date %>
-  <%= f.button :submit, "Edit", class: "btn btn-primary" %>
-  <% end %>
-
+  <div class="row edit-us-show">
+    <%= simple_form_for([@user_service, @task]) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, "Edit", class: "link-us-edit" %>
+    <% end %>
+  </div>
 </div>
