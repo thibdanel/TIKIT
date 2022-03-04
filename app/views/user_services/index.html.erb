@@ -36,22 +36,22 @@
     <div class="row services-row">
         <% @user_services.each do |user_service| %>
           <div class="col-4 mt-4">
-            <div class="card-services">
+            <div class="card-services" style="border-top: 24px solid #<%= user_service.service.color %>; ">
               <div class="name-service">
                 <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
                 <div class="logo-service">
                   <%= image_tag "poleemploi.png" %>
                 </div>
               </div>
-              <hr id="line">
+              <hr id="line" style=" color: #<%= user_service.service.color%> ">
               <div class="options-service">
                 <p>Vos informations</p>
                 <div class="options">
                   <%= link_to edit_user_service_path(user_service) do %>
-                    <i class="fas fa-pen"></i>
+                    <i class="fas fa-pen" style="color: #000000"></i>
                   <% end %>
                   <%= link_to user_service_path(user_service), method: :delete do %>
-                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash" style="color: #000000"></i>
                   <% end %>
                 </div>
               </div>
@@ -70,40 +70,37 @@
     <hr>
 </div>
 
-
-
-  <div class="available-services">
-    <h2>Services disponibles</h2>
-    <div class="row services-row">
-      <% @services.each do |service| %>
-        <div class="col-4 mt-4">
-          <div class="card-available-services">
-            <div class="card-top">
-              <div class="logo-service">
-                <%= image_tag "poleemploi.png" %>
-              </div>
-              <%= link_to new_service_user_service_path(service) do %>
-                <i class="fas fa-plus"></i>
-              <% end %>
-            </div>
-            <div class="card-bottom">
-              <%= link_to service.name, new_service_user_service_path(service), class: "service-name" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<div class="available-services">
+  <h2>Services disponibles</h2>
+  <div class="row services-row">
+    <% @services.each do |service| %>
       <div class="col-4 mt-4">
-        <div class="card-available-services">
+        <div class="card-available-services" style="border-top: 24px solid #<%= service.color %>;">
           <div class="card-top">
             <div class="logo-service">
+              <%= image_tag "poleemploi.png" %>
             </div>
-            <%= link_to new_service_path do %>
+            <%= link_to new_service_user_service_path(service) do %>
               <i class="fas fa-plus"></i>
-            <%  end %>
+            <% end %>
           </div>
           <div class="card-bottom">
-            <p class="service-name">Créez votre service</p>
+            <%= link_to service.name, new_service_user_service_path(service), class: "service-name" %>
           </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-4 mt-4">
+      <div class="card-available-services" style="border-top: 24px solid #000000;">
+        <div class="card-top">
+          <div class="logo-service">
+          </div>
+          <%= link_to new_service_path do %>
+            <i class="fas fa-plus"></i>
+          <%  end %>
+        </div>
+        <div class="card-bottom">
+          <p class="service-name">Créez votre service</p>
         </div>
       </div>
     </div>
