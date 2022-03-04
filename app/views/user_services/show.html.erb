@@ -2,7 +2,7 @@
   <div class="row US-show">
     <div class="col-7">
       <h3><%= @service.name %></h3>
-        <hr id="line" style="color: #<%= @user_service.service.color %>">
+        <hr id="line" style="color: <%= @user_service.service.color %>">
           <p><%= @service.description %></p>
           <p><i class="fas fa-user-alt"> - </i> <%= @user_service.contact_name%></p>
           <p><i class="fas fa-envelope"> - </i> <%= @user_service.contact_email%></p>
