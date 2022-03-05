@@ -24,7 +24,7 @@ puts "service clean"
 
 puts "creating services"
 
-service1 = Service.new(name: "Pôle-Emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "#20447B")
+service1 = Service.new(name: "Pôle Emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "#20447B")
 service2 = Service.new(name: "Impôts", description: "Ne manquez pas vos RDV fiscaux!", color: "#004B6C")
 service3 = Service.new(name: "CAF", description: "Un papier? Une attestation, on vous dit tout", color: "#73AFD0")
 service4 = Service.new(name: "Mutuelle", description: "Un remboursement à suivre? on vous le rappelle!", color: "#E50028")
