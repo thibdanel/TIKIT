@@ -5,6 +5,7 @@
     <%= f.input :name, label: "Titre de votre Service"  %>
     <%= f.input :description, label: "Description" %>
     <%= f.input :color, input_html: { type: 'color' }, label: "Choisissez une couleur" %>
+    <%= f.input :photo, as: :file, label: 'Votre logo' %>
     <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
     <%end  %>
   </div>
