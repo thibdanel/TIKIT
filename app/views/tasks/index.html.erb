@@ -2,6 +2,7 @@
   <h2>Vos services</h2>
 
   <div class="row row-tasks">
+
     <% @user_service.each do |user_service| %>
       <div class="col-6 mt-5">
         <div class="card-tasks" style="border-left: 24px solid <%= user_service.service.color %>;">
@@ -13,23 +14,67 @@
           </div>
           <hr id="line">
           <div class="row row-task">
-            <% uniq_user_service = [] %>
-            <% @user_service.filter %>
-            <% user_service.tasks << uniq_user_service %>
-            <% user_service.tasks.each do |task| %>
+            <%# <% user_service.tasks.order(end_date: :asc || (done: false && end_date: nil) :asc ).each do |task| %>
+
+            <% user_service.tasks.order('done ASC, end_date ASC NULLS FIRST').each do |task| %>
+
               <div class="col-12">
                 <div class="task">
 
-                  <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                    <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                  <% end %>
+                  <% if task.done == false && task.end_date == nil %>
+                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
+                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
+                    <% end %>
 
+                    <p style=""><%= task.title.capitalize %> <p>
+                    <%= link_to edit_user_service_task_path(user_service,task) do %>
+                      <i class="fas fa-ellipsis-h" style="color: #000000"></i>
+                    <% end %>
 
+                  <% elsif task.done == false && (task.end_date.day - Date.today.day) < 0 %>
 
-                  <p><%= task.title.capitalize %> <p>
-                  <p><%= task.end_date %> jours <i class="fas fa-clock"></i> </p>
-                  <%= link_to edit_user_service_task_path(user_service,task) do %>
-                    <i class="fas fa-ellipsis-h" style="color: #000000"></i>
+                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
+                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
+                    <% end %>
+
+                    <p style="color: #FF8181;"><%= task.title.capitalize %> <p>
+                    <p style="color: #FF8181"><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
+                    <%= link_to edit_user_service_task_path(user_service,task) do %>
+                      <i class="fas fa-ellipsis-h" style="color: #000000"></i>
+                    <% end %>
+
+                  <% elsif task.done == false && (task.end_date.day - Date.today.day) < 2 %>
+                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
+                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
+                    <% end %>
+
+                    <p style="color: #D16E11"><%= task.title.capitalize %> <p>
+                    <p style="color: #D16E11"><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
+                    <%= link_to edit_user_service_task_path(user_service,task) do %>
+                      <i class="fas fa-ellipsis-h" style="color: #000000"></i>
+                    <% end %>
+
+                  <% elsif task.done == false && (task.end_date.day - Date.today.day) >= 2 %>
+                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
+                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
+                    <% end %>
+
+                    <p style=""><%= task.title.capitalize %> <p>
+                    <p><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
+                    <%= link_to edit_user_service_task_path(user_service,task) do %>
+                      <i class="fas fa-ellipsis-h" style="color: #000000"></i>
+                    <% end %>
+
+                  <% elsif task.done == true %>
+
+                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
+                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
+                    <% end %>
+
+                    <p style="color: #B7B7B7; text-decoration: line-through;"><%= task.title.capitalize %> <p>
+                    <%= link_to edit_user_service_task_path(user_service,task) do %>
+                      <i class="fas fa-ellipsis-h" style="color: #000000"></i>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
