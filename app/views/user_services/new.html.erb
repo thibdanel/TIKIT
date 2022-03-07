@@ -1,14 +1,19 @@
 <div class="Container">
   <div class="row edit-us-show">
-      <div class="row p-2 m-3">
-        <h2 class ="mb-4"> <%= @service.name %></h2>
-          <%= simple_form_for [@service, @user_service] do |f| %>
-          <%= f.input :contact_name, label: "Nom du Contact"  %>
-          <%= f.input :contact_phone, label: "Numéro de Téléphone du Contact" %>
-          <%= f.input :contact_email,label: "Email du Contact" %>
-          <%= f.input :contact_address,label: "Adresse du Contact" %>
-          <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
-          <% end  %>
+    <div class="col">
+      <div class="position-logo-service">
+        <h2 class="h2-user-service-edit"><%= @service.name %></h2>
+          <div class="logo-service">
+            <%= @service.photo.attached? ? cl_image_tag(@service.photo.key, height: 300, width: 300, crop: :fill) : ""%>
+          </div>
       </div>
+      <%= simple_form_for [@service, @user_service] do |f| %>
+      <%= f.input :contact_name, label: "Nom du Contact"  %>
+      <%= f.input :contact_phone, label: "Numéro de Téléphone du Contact" %>
+      <%= f.input :contact_email,label: "Email du Contact" %>
+      <%= f.input :contact_address,label: "Adresse du Contact" %>
+      <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
+      <% end  %>
+    </div>
   </div>
 </div>
