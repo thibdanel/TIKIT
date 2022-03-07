@@ -1,10 +1,11 @@
 <div class="container">
-
+  <div class="row edit-us-show">
+    <h1 class= "mb-3">Créez votre Service</h1>
     <%= simple_form_for (@service) do |f| %>
-    <%= f.input :name, label: 'Nom du service'  %>
-    <%= f.input :description %>
-    <%= f.input :color, input_html: { type: 'color' }, label: 'Couleur souhaitée' %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'logo' %>
-    <%= f.submit "Créer mon service", class: 'btn btn-primary'%>
+    <%= f.input :name, label: "Titre de votre Service"  %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :color, input_html: { type: 'color' }, label: "Choisissez une couleur" %>
+    <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
     <%end  %>
+  </div>
 </div>
