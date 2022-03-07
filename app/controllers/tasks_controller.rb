@@ -37,6 +37,13 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     @action = "Update your Task"
+    @user_service = UserService.find(params[:user_service_id])
+    @marker = [
+      {
+        lat: @user_service.latitude,
+        lng: @user_service.longitude
+      }
+    ]
   end
 
   def update
