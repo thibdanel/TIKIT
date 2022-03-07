@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "open-uri"
+
 puts " deleting all tasks"
 Task.destroy_all
 puts "Task clean"
@@ -24,6 +26,15 @@ puts "service clean"
 
 puts "creating services"
 
+file1 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/c/c0/Logo_P%C3%B4le_Emploi_2008.svg/1280px-Logo_P%C3%B4le_Emploi_2008.svg.png')
+file2 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/6/6d/Logo_DGFP-fr.svg/1280px-Logo_DGFP-fr.svg.png')
+file3 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/c/cb/Caisse_d_allocations_familiales_france_logo.svg/1200px-Caisse_d_allocations_familiales_france_logo.svg.png')
+file4 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/e/e8/Logo_Swiss_Life.svg/1200px-Logo_Swiss_Life.svg.png')
+file5 = URI.open('https://upload.wikimedia.org/wikipedia/fr/2/2a/Logo-laposte.png')
+file6 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Logo-Mairie.svg/2048px-Logo-Mairie.svg.png')
+file7 = URI.open('https://www.femasif.fr/wp-content/uploads/sites/3/2019/02/cpam-logo-620x380.png')
+file8 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/8/80/Logo_Hauts-de-France_2016.svg/1200px-Logo_Hauts-de-France_2016.svg.png')
+
 service1 = Service.new(name: "Pôle Emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "#20447B")
 service2 = Service.new(name: "Impôts", description: "Ne manquez pas vos RDV fiscaux!", color: "#004B6C")
 service3 = Service.new(name: "CAF", description: "Un papier? Une attestation, on vous dit tout", color: "#73AFD0")
@@ -32,6 +43,15 @@ service5 = Service.new(name: "La poste", description: "Un envoie important en at
 service6 = Service.new(name: "Mairie", description: "Un projet sympa? dites le nous!", color: "#0cadb7")
 service7 = Service.new(name: "CPAM", description: "Suivez vos remboursements", color: "#163860")
 service8 = Service.new(name: "la Region", description: "financez votre formation", color: "#ff9800")
+
+service1.photo.attach(io: file1, filename: 'nes.png', content_type: 'image/png')
+service2.photo.attach(io: file2, filename: 'nes.png', content_type: 'image/png')
+service3.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
+service4.photo.attach(io: file4, filename: 'nes.png', content_type: 'image/png')
+service5.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
+service6.photo.attach(io: file6, filename: 'nes.png', content_type: 'image/png')
+service7.photo.attach(io: file7, filename: 'nes.png', content_type: 'image/png')
+service8.photo.attach(io: file8, filename: 'nes.png', content_type: 'image/png')
 
 service1.save!
 service2.save!

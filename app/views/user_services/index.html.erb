@@ -40,7 +40,8 @@
               <div class="name-service">
                 <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
                 <div class="logo-service">
-                  <%= image_tag "poleemploi.png" %>
+                  <%= cl_image_tag user_service.service.photo.key, height: 300, width: 400, crop: :fill %>
+                  <%#= image_tag "poleemploi.png" %>
                 </div>
               </div>
               <hr id="line" style=" color: <%= user_service.service.color%> ">
@@ -84,7 +85,8 @@
         <div class="card-available-services" style="border-top: 24px solid <%= service.color %>;">
           <div class="card-top">
             <div class="logo-service">
-              <%= image_tag "poleemploi.png" %>
+              <%= cl_image_tag(service.photo.key, height: 300, width: 400, crop: :fill)%>
+              <%#= image_tag "poleemploi.png" %>
             </div>
             <%= link_to new_service_user_service_path(service) do %>
               <i class="fas fa-plus"></i>

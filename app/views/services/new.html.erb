@@ -1,9 +1,10 @@
 <div class="container">
 
     <%= simple_form_for (@service) do |f| %>
-    <%= f.input :name  %>
+    <%= f.input :name, label: 'Nom du service'  %>
     <%= f.input :description %>
-    <%= f.input :color, input_html: { type: 'color' } %>
-    <%= f.submit "Submit", class: 'btn btn-primary' %>
+    <%= f.input :color, input_html: { type: 'color' }, label: 'Couleur souhaitée' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'logo' %>
+    <%= f.submit "Créer mon service", class: 'btn btn-primary'%>
     <%end  %>
 </div>
