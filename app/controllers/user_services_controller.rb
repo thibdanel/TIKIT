@@ -27,6 +27,11 @@ class UserServicesController < ApplicationController
     @service = Service.find(params[:service_id])
     @user_service.service = @service
     @user_service.user = current_user
+    @service.service_tasks.each do |st|
+      t = Task.create!(title: st.title, description: st.description, end_date:  Date.today + st.offset_day, user: current_user, user_service: @user_service)
+      # Task.create = (title: st.title, description: st.description, offset_day:  st.offset_day, user_id: current_user, user_service_id: @user_service)
+      # st.title, st.description, st.offset_day
+    end
     if @user_service.save
       redirect_to user_services_path
     else
