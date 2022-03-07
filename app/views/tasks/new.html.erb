@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card-tasks" style="border-left: 24px solid <%= @user_service.service.color %>;">
     <div class="row edit-us-show" data-controller= "flatpicker">
-      <h3 class="mb-4"> Créer une nouvelle tâche </h3>
+      <h3 class="mb-4"> Créer votre nouvelle tâche </h3>
       <div class="col-7 border-end border-2">
           <%= simple_form_for(@task) do |f| %>
           <%= f.input :title, label: "Titre"  %>
