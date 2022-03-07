@@ -12,6 +12,13 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @action = "Add your Task"
+    @user_service = UserService.find(params[:user_service_id])
+    @marker = [
+      {
+        lat: @user_service.latitude,
+        lng: @user_service.longitude
+      }
+    ]
   end
 
   def create

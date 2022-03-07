@@ -1,13 +1,22 @@
 <div class="container">
-  <div class="row edit-us-show" data-controller= "flatpicker">
-
-    <h1>Créer une nouvelle tâche</h1>
-    <%= simple_form_for(@task) do |f| %>
-    <%= f.input :title, label: "Titre"  %>
-    <%= f.input :description, label: "Description"  %>
-    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date"  %>
-    <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id]}, label: false %>
-    <%= f.button :submit, "Créer une tâche", id: "link-us-edit" %>
-    <% end %>
+  <div class="card-tasks" style="border-left: 24px solid <%= @user_service.service.color %>;">
+    <div class="row edit-us-show" data-controller= "flatpicker">
+      <h3 class="mb-4"> Créer une nouvelle tâche </h3>
+      <div class="col-7 border-end border-2">
+          <%= simple_form_for(@task) do |f| %>
+          <%= f.input :title, label: "Titre"  %>
+          <%= f.input :description, label: "Description"  %>
+          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date"  %>
+          <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id], class:"d-none m-0"}, label: false %>
+          <%= f.button :submit, "Créer une tâche", id: "link-us-edit", class:"mb-3 mt-2" %>
+          <% end %>
+      </div>
+      <div class="col-5">
+        <div style="width: 400px; height: 330px; border-radius: 12px;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @marker.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
   </div>
 </div>
