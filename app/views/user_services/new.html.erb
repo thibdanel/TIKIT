@@ -3,11 +3,11 @@
     <h3 class="h3"> <%= @service.name %></h3>
     <div class="row p-2 m-3">
         <%= simple_form_for [@service, @user_service] do |f| %>
-        <%= f.input :contact_name  %>
-        <%= f.input :contact_phone %>
-        <%= f.input :contact_email %>
-        <%= f.input :contact_address %>
-        <%= f.submit "Submit", id: 'link-us-edit' %>
+         <%= f.input :contact_name, label: "Nom du Contact"  %>
+        <%= f.input :contact_phone, label: "Numéro de Téléphone du Contact" %>
+        <%= f.input :contact_email,label: "Email du Contact" %>
+        <%= f.input :contact_address,label: "Adresse du Contact" %>
+        <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
         <% end  %>
     </div>
   </div>
