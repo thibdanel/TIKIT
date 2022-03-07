@@ -93,6 +93,7 @@ user_service6.save!
 user_service7.save!
 user_service8.save!
 user_service9.save!
+user_service10.save!
 
 puts "#{UserService.count} have been created!"
 
@@ -129,22 +130,28 @@ puts "Creating Tasks"
 # task14.save!
 
 # puts "#{Task.count} have been created!"
-p user_service1
+# p user_service1
 
-p service_task1 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task2 = ServiceTask.new(service: service2,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task3 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task4 = ServiceTask.new(service: service1,  title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task5 = ServiceTask.new(service: service2,  title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task6 = ServiceTask.new(service: service3,  title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task7 = ServiceTask.new(service: service1,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task8 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task9 = ServiceTask.new(service: service2,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task10 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task11 = ServiceTask.new(service: service1,  title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task12 = ServiceTask.new(service: service2,  title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task13 = ServiceTask.new(service: service3,  title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task14 = ServiceTask.new(service: service1,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task1 = ServiceTask.new(service: service1,  title: 'Actualistation', description: 'indispensable pour indemnités', offset_day: 5)
+service_task2 = ServiceTask.new(service: service1,  title: 'Rdv conseiller', description: 'mettre à jour CV', offset_day: 5)
+service_task3 = ServiceTask.new(service: service1,  title: 'Inscription formation', description: 'Urgent', offset_day: 5)
+service_task4 = ServiceTask.new(service: service1,  title: 'Re-inscription', description: 'A ne pas oublier à la fin de la formation', offset_day: 5)
+service_task5 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: 5)
+
+service_task6 = ServiceTask.new(service: service2,  title: 'Déclaration IR', description: 'Avant fin mai', offset_day: 5)
+service_task7 = ServiceTask.new(service: service2,  title: 'Paiement IR', description: 'Avant fin Septembre', offset_day: 5)
+service_task8 = ServiceTask.new(service: service2,  title: 'Taxe fonciere', description: 'Pas oublier avant fin Novembre', offset_day: 5)
+service_task9 = ServiceTask.new(service: service2,  title: 'Verifier crédit impot', description: 'Verifier en Janvier et Juillet', offset_day: 5)
+
+# service_task10 = ServiceTask.new(service: service3,  title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', offset_day: 5)
+# service_task11 = ServiceTask.new(service: service3,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+# service_task12 = ServiceTask.new(service: service3,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+# service_task13 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
+
+service_task14 = ServiceTask.new(service: service3,  title: 'Déclaration Ass-mat', description: '20 du mois', offset_day: 5)
+service_task15 = ServiceTask.new(service: service3,  title: 'Déclarer un changement', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task16 = ServiceTask.new(service: service3,  title: 'Déclarer naissance', description: '3 mois avant naissance', offset_day: 5)
+service_task17 = ServiceTask.new(service: service3,  title: 'Verifier paiement droit', description: '5 du mois', offset_day: 5)
 
 service_task1.save!
 service_task2.save!
@@ -155,10 +162,14 @@ service_task6.save!
 service_task7.save!
 service_task8.save!
 service_task9.save!
-service_task10.save!
-service_task11.save!
-service_task12.save!
-service_task13.save!
+# service_task10.save!
+# service_task11.save!
+# service_task12.save!
+# service_task13.save!
 service_task14.save!
+service_task15.save!
+service_task16.save!
+service_task17.save!
 
 puts "#{Task.count} have been created!"
+puts "#{ServiceTask.count} have been created!"
