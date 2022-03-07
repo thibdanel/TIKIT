@@ -41,7 +41,7 @@
               <div class="name-service">
                 <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
                 <div class="logo-service">
-                  <%= user_service.service.photo.attached? ? cl_image_tag(user_service.service.photo.key, height: 300, width: 400, crop: :fill) : ""%>
+                  <%= user_service.service.photo.attached? ? cl_image_tag(user_service.service.photo.key, height: 300, width: 300, crop: :fill) : ""%>
                   <%#= image_tag "poleemploi.png" %>
                 </div>
               </div>
@@ -62,13 +62,17 @@
                 <p id="contact-name"><i class="fas fa-user-alt"></i> <%= user_service.contact_name %> </p>
                 <p id="telephone"><i class="fas fa-phone-alt"></i> <%= user_service.contact_phone %> </p>
                 <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
+                <% task_pending = [] %>
                 <% tasks_done = []%>
                 <% user_service.tasks.each do |task|  %>
                 <% if task.done == true  %>
-                <% tasks_done << task.done  %>
+                  <% tasks_done << task.done  %>
+                <% else  %>
+                  <% task_pending << task.done %>
                 <% end %>
                 <% end %>
                 <p><i class="fas fa-check"></i><%=tasks_done.size %> Tâches réalisées</p>
+                <p><i class="far fa-times-circle"></i><%=task_pending.size %> Tâches en attente</p>
               </div>
 
             </div>
@@ -86,7 +90,7 @@
         <div class="card-available-services" style="border-top: 24px solid <%= service.color %>;">
           <div class="card-top">
             <div class="logo-service">
-              <%= service.photo.attached? ? cl_image_tag(service.photo.key, height: 300, width: 400, crop: :fill) : ""%>
+              <%= service.photo.attached? ? cl_image_tag(service.photo.key, height: 500, width: 500, crop: :fill) : ""%>
               <%#= image_tag "poleemploi.png" %>
             </div>
             <%= link_to new_service_user_service_path(service) do %>
