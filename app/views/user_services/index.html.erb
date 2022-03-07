@@ -33,6 +33,7 @@
 
 <div class="my-services">
   <h2>Mes services</h2>
+    <hr>
     <div class="row services-row">
         <% @user_services.each do |user_service| %>
           <div class="col-4 mt-4">
@@ -74,11 +75,11 @@
           </div>
         <% end %>
     </div>
-    <hr>
 </div>
 
 <div class="available-services">
   <h2>Services disponibles</h2>
+  <hr>
   <div class="row services-row">
     <% @services.each do |service| %>
       <div class="col-4 mt-4">
