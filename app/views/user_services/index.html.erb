@@ -52,7 +52,7 @@
                   <%= link_to edit_user_service_path(user_service) do %>
                     <i class="fas fa-pen" style="color: #000000"></i>
                   <% end %>
-                  <%= link_to user_service_path(user_service), method: :delete do %>
+                  <%= link_to user_service_path(user_service), method: :delete, data: {confirm: "Confirmez vous la suppression de ce service ainsi que toutes les taches associées?"} do %>
                     <i class="fas fa-trash" style="color: #000000"></i>
                   <% end %>
                 </div>
@@ -93,9 +93,14 @@
               <%= service.photo.attached? ? cl_image_tag(service.photo.key, height: 500, width: 500, crop: :fill) : ""%>
               <%#= image_tag "poleemploi.png" %>
             </div>
-            <%= link_to new_service_user_service_path(service) do %>
-              <i class="fas fa-plus"></i>
-            <% end %>
+            <div>
+              <%= link_to new_service_user_service_path(service) do %>
+                <i class="fas fa-plus" style="padding-right: 15px"></i>
+              <% end %>
+              <%= link_to service_path(service), method: :delete, data: {confirm: "Confirmez vous la suppression de ce service?"} do %>
+                <i class="fas fa-trash" style="color: #000000"></i>
+              <% end %>
+            </div>
           </div>
           <div class="card-bottom">
             <%= link_to service.name, new_service_user_service_path(service), class: "service-name" %>
