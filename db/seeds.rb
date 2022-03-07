@@ -132,26 +132,26 @@ puts "Creating Tasks"
 # puts "#{Task.count} have been created!"
 # p user_service1
 
-service_task1 = ServiceTask.new(service: service1,  title: 'Actualistation', description: 'indispensable pour indemnités', offset_day: 5)
-service_task2 = ServiceTask.new(service: service1,  title: 'Rdv conseiller', description: 'mettre à jour CV', offset_day: 5)
-service_task3 = ServiceTask.new(service: service1,  title: 'Inscription formation', description: 'Urgent', offset_day: 5)
-service_task4 = ServiceTask.new(service: service1,  title: 'Re-inscription', description: 'A ne pas oublier à la fin de la formation', offset_day: 5)
-service_task5 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task1 = ServiceTask.new(service: service1,  title: 'Actualistation', description: 'indispensable pour indemnités', offset_day: rand(1..9))
+service_task2 = ServiceTask.new(service: service1,  title: 'Rdv conseiller', description: 'mettre à jour CV', offset_day: rand(1..9))
+service_task3 = ServiceTask.new(service: service1,  title: 'Inscription formation', description: 'Urgent', offset_day: rand(1..9))
+service_task4 = ServiceTask.new(service: service1,  title: 'Re-inscription', description: 'A ne pas oublier à la fin de la formation', offset_day: rand(1..9))
+service_task5 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: rand(1..9))
 
-service_task6 = ServiceTask.new(service: service2,  title: 'Déclaration IR', description: 'Avant fin mai', offset_day: 5)
-service_task7 = ServiceTask.new(service: service2,  title: 'Paiement IR', description: 'Avant fin Septembre', offset_day: 5)
-service_task8 = ServiceTask.new(service: service2,  title: 'Taxe fonciere', description: 'Pas oublier avant fin Novembre', offset_day: 5)
-service_task9 = ServiceTask.new(service: service2,  title: 'Verifier crédit impot', description: 'Verifier en Janvier et Juillet', offset_day: 5)
+service_task6 = ServiceTask.new(service: service2,  title: 'Déclaration IR', description: 'Avant fin mai', offset_day: rand(1..9))
+service_task7 = ServiceTask.new(service: service2,  title: 'Paiement IR', description: 'Avant fin Septembre', offset_day: rand(1..9))
+service_task8 = ServiceTask.new(service: service2,  title: 'Taxe fonciere', description: 'Pas oublier avant fin Novembre', offset_day: rand(1..9))
+service_task9 = ServiceTask.new(service: service2,  title: 'Verifier crédit impot', description: 'Verifier en Janvier et Juillet', offset_day: rand(1..9))
 
 # service_task10 = ServiceTask.new(service: service3,  title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', offset_day: 5)
 # service_task11 = ServiceTask.new(service: service3,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
 # service_task12 = ServiceTask.new(service: service3,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
 # service_task13 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
 
-service_task14 = ServiceTask.new(service: service3,  title: 'Déclaration Ass-mat', description: '20 du mois', offset_day: 5)
-service_task15 = ServiceTask.new(service: service3,  title: 'Déclarer un changement', description: 'urgent pour renouvelement de droits', offset_day: 5)
-service_task16 = ServiceTask.new(service: service3,  title: 'Déclarer naissance', description: '3 mois avant naissance', offset_day: 5)
-service_task17 = ServiceTask.new(service: service3,  title: 'Verifier paiement droit', description: '5 du mois', offset_day: 5)
+service_task14 = ServiceTask.new(service: service3,  title: 'Déclaration Ass-mat', description: '20 du mois', offset_day: rand(1..9))
+service_task15 = ServiceTask.new(service: service3,  title: 'Déclarer un changement', description: 'urgent pour renouvelement de droits', offset_day: rand(1..9))
+service_task16 = ServiceTask.new(service: service3,  title: 'Déclarer naissance', description: '3 mois avant naissance', offset_day: rand(1..9))
+service_task17 = ServiceTask.new(service: service3,  title: 'Verifier paiement droit', description: '5 du mois', offset_day: rand(1..9))
 
 service_task1.save!
 service_task2.save!

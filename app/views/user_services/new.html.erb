@@ -8,11 +8,11 @@
           </div>
       </div>
       <%= simple_form_for [@service, @user_service] do |f| %>
-      <%= f.input :contact_name, label: "Nom du Contact"  %>
-      <%= f.input :contact_phone, label: "Numéro de Téléphone du Contact" %>
-      <%= f.input :contact_email,label: "Email du Contact" %>
-      <%= f.input :contact_address,label: "Adresse du Contact" %>
-      <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
+        <%= f.input :contact_name, label: "Nom du Contact"  %>
+        <%= f.input :contact_phone, label: "Numéro de Téléphone du Contact" %>
+        <%= f.input :contact_email,label: "Email du Contact" %>
+        <%= f.input :contact_address,label: "Adresse du Contact" %>
+        <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
       <% end  %>
     </div>
   </div>

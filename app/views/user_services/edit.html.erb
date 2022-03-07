@@ -3,9 +3,9 @@
     <div class="col">
       <div class="position-logo-service">
         <h2 class="h2-user-service-edit"><%= @user_service.service.name %></h2>
-        <div class="logo-service">
-          <%= @user_service.service.photo.attached? ? cl_image_tag(@user_service.service.photo.key, height: 300, width: 300, crop: :fill) : ""%>
-        </div>
+          <div class="logo-service">
+            <%= @user_service.service.photo.attached? ? cl_image_tag(@user_service.service.photo.key, height: 300, width: 300, crop: :fill) : ""%>
+          </div>
       </div>
       <%= simple_form_for (@user_service) do |f| %>
         <%= f.input :contact_name, label: "Nom du Contact"  %>
