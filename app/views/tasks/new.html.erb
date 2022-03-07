@@ -1,10 +1,11 @@
 <div class="container">
-  <div class="row edit-us-show">
+  <div class="row edit-us-show" data-controller= "flatpicker">
+
     <h1>Créer une nouvelle tâche</h1>
     <%= simple_form_for(@task) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :end_date %>
+    <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id]} %>
     <%= f.button :submit, "create", id: "link-us-edit" %>
     <% end %>
