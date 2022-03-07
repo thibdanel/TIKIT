@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.where(user: current_user).order(:end_date)
     @user_service = current_user.user_services
-    @service = Service.where(user: current_user)
+    # @services = Service.where(user: current_user)
     @services = @tasks.map do |task|
                   task.user_service.service.name
                 end

@@ -55,8 +55,8 @@ user_service2 = UserService.new(contact_email: "Robert@finances.fr", contact_pho
 user_service3 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user1)
 user_service4 = UserService.new(contact_email: "Manu@mairie.fr", contact_phone: "03.20.18.55.38", contact_name: "Manu Hot-Dog", contact_address: "Lille", service: service6, user: user1)
 user_service5 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user2)
-user_service6 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user2)
-user_service7 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user2)
+user_service6 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service4, user: user2)
+user_service7 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service5, user: user2)
 user_service8 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user3)
 user_service9 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user3)
 user_service10 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user3)
@@ -74,34 +74,67 @@ puts "#{UserService.count} have been created!"
 
 puts "Creating Tasks"
 
-task1 = Task.new(user_service: user_service1, user: user1, title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-23'))
-task2 = Task.new(user_service: user_service2, user: user2, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-25'))
-task3 = Task.new(user_service: user_service3, user: user3, title: 'inscription', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-16'))
-task4 = Task.new(user_service: user_service1, user: user1, title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-12'))
-task5 = Task.new(user_service: user_service2, user: user2, title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-11'))
-task6 = Task.new(user_service: user_service3, user: user3, title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-01'))
-task7 = Task.new(user_service: user_service1, user: user1, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-30'))
-task8 = Task.new(user_service: user_service1, user: user1, title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-28'))
-task9 = Task.new(user_service: user_service2, user: user2, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-27'))
-task10 = Task.new(user_service: user_service3, user: user1, title: 'inscription', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-26'))
-task11 = Task.new(user_service: user_service1, user: user1, title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-21'))
-task12 = Task.new(user_service: user_service2, user: user1, title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', done:true, end_date: Date.parse('2022-03-10'))
-task13 = Task.new(user_service: user_service3, user: user1, title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-05'))
-task14 = Task.new(user_service: user_service1, user: user1, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-22'))
+# task1 = Task.new(user_service: user_service1, user: user1, title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-23'))
+# task2 = Task.new(user_service: user_service2, user: user2, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-25'))
+# task3 = Task.new(user_service: user_service3, user: user3, title: 'inscription', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-16'))
+# task4 = Task.new(user_service: user_service1, user: user1, title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-12'))
+# task5 = Task.new(user_service: user_service2, user: user2, title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-11'))
+# task6 = Task.new(user_service: user_service3, user: user3, title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-01'))
+# task7 = Task.new(user_service: user_service1, user: user1, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-30'))
+# task8 = Task.new(user_service: user_service1, user: user1, title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-28'))
+# task9 = Task.new(user_service: user_service2, user: user2, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', end_date: Date.parse('2022-03-27'))
+# task10 = Task.new(user_service: user_service3, user: user1, title: 'inscription', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-26'))
+# task11 = Task.new(user_service: user_service1, user: user1, title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-21'))
+# task12 = Task.new(user_service: user_service2, user: user1, title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', done:true, end_date: Date.parse('2022-03-10'))
+# task13 = Task.new(user_service: user_service3, user: user1, title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-05'))
+# task14 = Task.new(user_service: user_service1, user: user1, title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', done: true, end_date: Date.parse('2022-03-22'))
 
-task1.save!
-task2.save!
-task3.save!
-task4.save!
-task5.save!
-task6.save!
-task7.save!
-task8.save!
-task9.save!
-task10.save!
-task11.save!
-task12.save!
-task13.save!
-task14.save!
+# task1.save!
+# task2.save!
+# task3.save!
+# task4.save!
+# task5.save!
+# task6.save!
+# task7.save!
+# task8.save!
+# task9.save!
+# task10.save!
+# task11.save!
+# task12.save!
+# task13.save!
+# task14.save!
+
+# puts "#{Task.count} have been created!"
+p user_service1
+
+p service_task1 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task2 = ServiceTask.new(service: service2,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task3 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task4 = ServiceTask.new(service: service1,  title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task5 = ServiceTask.new(service: service2,  title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task6 = ServiceTask.new(service: service3,  title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task7 = ServiceTask.new(service: service1,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task8 = ServiceTask.new(service: service1,  title: 'envoyer attestation', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task9 = ServiceTask.new(service: service2,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task10 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task11 = ServiceTask.new(service: service1,  title: 'Appeller conseiller', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task12 = ServiceTask.new(service: service2,  title: 'telephoner à la mairie', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task13 = ServiceTask.new(service: service3,  title: 'renouvellement abonnement', description: 'urgent pour renouvelement de droits', offset_day: 5)
+service_task14 = ServiceTask.new(service: service1,  title: 'envoyer courrier', description: 'urgent pour renouvelement de droits', offset_day: 5)
+
+service_task1.save!
+service_task2.save!
+service_task3.save!
+service_task4.save!
+service_task5.save!
+service_task6.save!
+service_task7.save!
+service_task8.save!
+service_task9.save!
+service_task10.save!
+service_task11.save!
+service_task12.save!
+service_task13.save!
+service_task14.save!
 
 puts "#{Task.count} have been created!"
