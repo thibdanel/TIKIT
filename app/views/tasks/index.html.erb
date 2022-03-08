@@ -11,7 +11,7 @@
           <div class="row row-task">
 
             <% @tasks_not_done.order('end_date ASC NULLS FIRST').each do |task| %>
-              <% unless (task.end_date.day - Date.today.day) > 7 %>
+              <% unless task.end_date.nil? || (task.end_date.day - Date.today.day) > 7 %>
               <div class="col-12">
                 <div class="task">
                   <% if  task.end_date == nil %>
