@@ -1,22 +1,38 @@
- <div class="container">
-  <h2>Log in</h2>
+ <div class="container-login">
+  <div class="row row-login">
+    <div class="col-8">
+      <div class="form-login">
+        <h2>Connexion</h2>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        label: "Adresse e-mail",
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+            <%= f.input :password,
+                        label: "Mot de passe",
+                        required: false,
+                        input_html: { autocomplete: "current-password" } %>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Mot de passe oublié?", new_password_path(resource_name)%><br/>
+            <% end %>
+            <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
+          </div>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <div class="form-actions">
+            <%= f.button :submit, "Se connecter" %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+    <div class="col-4">
+      <div class="img-login">
+        <%= image_tag "Sign up.png", class: "img-banner-homepage" %>
+      </div>
     </div>
-  <% end %>
+  </div>
 
-  <%= render "devise/shared/links" %>
+
  </div>
