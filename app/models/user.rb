@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :services, through: :user_services
   has_many :tasks
 
+
 end

@@ -1,0 +1,8 @@
+  <p>Hi <%= @user.email %>,</p>
+
+<p>Today we'll talk about SMTP and Postmark!</p>
+<% @user.tasks.each do |task| %>
+  <p><%= task.title %></p>
+<% end %>
+
+<p>See ya!</p>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  #require "sidekiq/web"
 
   resources :services do
     resources :user_services, only: [:new, :create]
@@ -15,6 +16,12 @@ Rails.application.routes.draw do
   patch "tasks/:id/finished", to: 'tasks#finished', as: "task_finished"
 
   resources :service_tasks, only: [:index, :new, :create]
+
+  # Sidekiq Web UI, only for admins.
+
+  # authenticate :user, ->(user) { user.admin? } do
+  #   mount Sidekiq::Web => '/sidekiq'
+  # end
 
   # commented routes for checking in the future
 
