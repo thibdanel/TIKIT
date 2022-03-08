@@ -1,5 +1,15 @@
 .container-tasks {
+  padding: 0 200px 75px 200px;
+}
+
+.container-tasks-special {
   padding: 0 200px;
+}
+
+.container-tasks-special h2 {
+  margin-top: 50px;
+  font-family: 'Poppins' sans-serif;
+  font-size: 48px;
 }
 
 .container-tasks h2 {
@@ -56,7 +66,6 @@
   padding: 15px 0px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .task p {
@@ -64,6 +73,14 @@
   font-family: 'Inter' sans-serif;
   font-size: 18px;
   font-weight: 400;
+}
+
+.task .justify {
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
 fieldset.mb-3 {
@@ -76,4 +93,12 @@ fieldset.mb-3 {
 
 .col-7{
   justify-content: space-between;
+}
+
+.form-check-input.is-valid:checked {
+  background-color: #000000;
+}
+
+.form-check-input.is-valid {
+  border-color: #000000;
 }
