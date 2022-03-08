@@ -229,3 +229,32 @@
 a {
   text-decoration: none;
 }
+
+.edit {
+  padding-right: 15px;
+}
+
+.available-services .plus {
+  padding-right: 15px
+}
+
+.return {
+  align-items: center;
+}
+
+.return svg {
+  height: 12px;
+}
+
+.return h4 {
+  color: #000000;
+  font-family: 'inter' sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+  padding-left: 5px;
+}
+
+.row.US-show h3 {
+  margin-top: 20px;
+}
