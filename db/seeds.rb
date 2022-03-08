@@ -26,14 +26,15 @@ puts "service clean"
 
 puts "creating services"
 
-file1 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/c/c0/Logo_P%C3%B4le_Emploi_2008.svg/1280px-Logo_P%C3%B4le_Emploi_2008.svg.png')
-file2 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/6/6d/Logo_DGFP-fr.svg/1280px-Logo_DGFP-fr.svg.png')
-file3 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/c/cb/Caisse_d_allocations_familiales_france_logo.svg/1200px-Caisse_d_allocations_familiales_france_logo.svg.png')
-file4 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/e/e8/Logo_Swiss_Life.svg/1200px-Logo_Swiss_Life.svg.png')
-file5 = URI.open('https://upload.wikimedia.org/wikipedia/fr/2/2a/Logo-laposte.png')
-file6 = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Logo-Mairie.svg/2048px-Logo-Mairie.svg.png')
-file7 = URI.open('https://www.femasif.fr/wp-content/uploads/sites/3/2019/02/cpam-logo-620x380.png')
-file8 = URI.open('https://upload.wikimedia.org/wikipedia/fr/thumb/8/80/Logo_Hauts-de-France_2016.svg/1200px-Logo_Hauts-de-France_2016.svg.png')
+file1 = File.open(Rails.root.join('app/assets/images/logos/Pole-emploi.png'))
+p file1
+file2 = File.open(Rails.root.join('app/assets/images/logos/fp.png'))
+file3 = File.open(Rails.root.join('app/assets/images/logos/CAF.png'))
+file4 = File.open(Rails.root.join('app/assets/images/logos/Swiss-Life.png'))
+file5 = File.open(Rails.root.join('app/assets/images/logos/La-Poste.png'))
+file6 = File.open(Rails.root.join('app/assets/images/logos/Mairie.png'))
+file7 = File.open(Rails.root.join('app/assets/images/logos/am.png'))
+file8 = File.open(Rails.root.join('app/assets/images/logos/HDF.png'))
 
 service1 = Service.new(name: "Pôle Emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "#20447B", private: false )
 service2 = Service.new(name: "Impôts", description: "Ne manquez pas vos RDV fiscaux!", color: "#004B6C", private: false)
