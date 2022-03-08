@@ -11,13 +11,13 @@
           <div class="row row-task">
 
             <% @tasks_not_done.order('end_date ASC NULLS FIRST').each do |task| %>
-              <% unless (task.end_date.day - Date.today.day) > 7 %>
-                <div class="col-12">
-                  <div class="task">
-                    <% if  task.end_date == nil %>
-                      <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                        <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                      <% end %>
+              <% unless task.end_date.nil? || (task.end_date.day - Date.today.day) > 7 %>
+              <div class="col-12">
+                <div class="task">
+                  <% if  task.end_date == nil %>
+                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
+                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
+                    <% end %>
 
                       <div class="justify">
                         <p style=""><%= task.title.capitalize %> <p>
