@@ -6,7 +6,6 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @user_service = UserService.find_by(service: @service, user: current_user)
-
   end
 
   def edit
