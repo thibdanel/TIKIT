@@ -3,17 +3,17 @@ class UserServicesController < ApplicationController
     @user_services = UserService.where(user: current_user)
     @services = Service.where.not(id: current_user.services)
     @doughnut_data = {
-      labels: @user_services.map {|us| us.service.name},
+      labels: @user_services.map { |us| us.service.name },
       datasets: [{
         label: 'My First dataset',
-        backgroundColor: @user_services.map {|us| us.service.color},
+        backgroundColor: @user_services.map { |us| us.service.color },
         # borderColor: '#3B82F6',
         data: @user_services.map do |us|
           count = []
           us.tasks.each do |task|
-          if task.done == false
-            count << task
-          end
+            if task.done == false
+              count << task
+            end
           end
           count.size
         end
@@ -61,9 +61,7 @@ class UserServicesController < ApplicationController
     @user_service.service = @service
     @user_service.user = current_user
     @service.service_tasks.each do |st|
-      t = Task.create!(title: st.title, description: st.description, end_date:  Date.today + st.offset_day, user: current_user, user_service: @user_service)
-      # Task.create = (title: st.title, description: st.description, offset_day:  st.offset_day, user_id: current_user, user_service_id: @user_service)
-      # st.title, st.description, st.offset_day
+      t = Task.create!(title: st.title, description: st.description, end_date: Date.today + st.offset_day, user: current_user, user_service: @user_service)
     end
     if @user_service.save
       redirect_to user_services_path
@@ -75,7 +73,6 @@ class UserServicesController < ApplicationController
   def update
     @user_service = UserService.find(params[:id])
     @user_service.update(user_service_params)
-    # redirect_to new_user_service_task_path
     redirect_to user_services_path
   end
 
@@ -87,7 +84,6 @@ class UserServicesController < ApplicationController
     @user_service = UserService.find(params[:id])
     @user_service.tasks.destroy_all
     @user_service.destroy
-    # redirect_to new_user_service_task_path
     redirect_to user_services_path
   end
 

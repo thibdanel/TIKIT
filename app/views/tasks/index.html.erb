@@ -147,7 +147,7 @@
                       <i class="fas fa-ellipsis-h" style="color: #000000"></i>
                     <% end %>
 
-                  <% elsif task.done == true %>
+                    <% elsif task.done == true %>
 
                     <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
                       <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>

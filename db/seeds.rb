@@ -36,7 +36,7 @@ file6 = File.open(Rails.root.join('app/assets/images/logos/Mairie.png'))
 file7 = File.open(Rails.root.join('app/assets/images/logos/am.png'))
 file8 = File.open(Rails.root.join('app/assets/images/logos/HDF.png'))
 
-service1 = Service.new(name: "Pôle Emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "#20447B", private: false )
+service1 = Service.new(name: "Pôle Emploi", description: "Ne soyez jamais en retard dans vos taches administratives", color: "#20447B", private: false)
 service2 = Service.new(name: "Impôts", description: "Ne manquez pas vos RDV fiscaux!", color: "#004B6C", private: false)
 service3 = Service.new(name: "CAF", description: "Un papier? Une attestation, on vous dit tout", color: "#73AFD0", private: false)
 service4 = Service.new(name: "Mutuelle", description: "Un remboursement à suivre? on vous le rappelle!", color: "#E50028", private: false)
