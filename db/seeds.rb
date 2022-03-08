@@ -74,26 +74,26 @@ puts "#{User.count} have been created!"
 
 puts "creating user-services"
 
-user_service1 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user1)
-user_service2 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user1)
-user_service3 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user1)
-user_service4 = UserService.new(contact_email: "Manu@mairie.fr", contact_phone: "03.20.18.55.38", contact_name: "Manu Hot-Dog", contact_address: "Lille", service: service6, user: user1)
-user_service5 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user2)
-user_service6 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service4, user: user2)
-user_service7 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service5, user: user2)
-user_service8 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user3)
-user_service9 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user3)
-user_service10 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user3)
-user_service1.save!
-user_service2.save!
-user_service3.save!
-user_service4.save!
-user_service5.save!
-user_service6.save!
-user_service7.save!
-user_service8.save!
-user_service9.save!
-user_service10.save!
+# user_service1 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user1)
+# user_service2 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user1)
+# user_service3 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user1)
+# user_service4 = UserService.new(contact_email: "Manu@mairie.fr", contact_phone: "03.20.18.55.38", contact_name: "Manu Hot-Dog", contact_address: "Lille", service: service6, user: user1)
+# user_service5 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user2)
+# user_service6 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service4, user: user2)
+# user_service7 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service5, user: user2)
+# user_service8 = UserService.new(contact_email: "veronique@pole-emploi.fr", contact_phone: "03.20.11.22.33", contact_name: "Véronique Dubois", contact_address: "lille", service: service1, user: user3)
+# user_service9 = UserService.new(contact_email: "Robert@finances.fr", contact_phone: "03.20.15.25.35", contact_name: "Robert Delsalle", contact_address: "lens", service: service2, user: user3)
+# user_service10 = UserService.new(contact_email: "Hugo@caf.fr", contact_phone: "03.20.18.28.38", contact_name: "Hugo Delfion", contact_address: "saint Quentin", service: service3, user: user3)
+# user_service1.save!
+# user_service2.save!
+# user_service3.save!
+# user_service4.save!
+# user_service5.save!
+# user_service6.save!
+# user_service7.save!
+# user_service8.save!
+# user_service9.save!
+# user_service10.save!
 
 puts "#{UserService.count} have been created!"
 
