@@ -36,6 +36,12 @@ gem 'simple_form'
 gem "geocoder"
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
+# gem mailing
+gem 'letter_opener', group: :development
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

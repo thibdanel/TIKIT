@@ -8,6 +8,40 @@ class TasksController < ApplicationController
       task.user_service.service.name
     end
     @services.uniq!
+
+    @doughnut_data = {
+      labels: @user_service.map { |us| us.service.name },
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: @user_service.map { |us| us.service.color },
+        # borderColor: '#3B82F6',
+        data: @user_service.map do |us|
+          count = []
+          us.tasks.each do |task|
+            if task.done == false
+              count << task
+            end
+          end
+          count.size
+        end
+      }]
+    }
+    @doughnut_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            width: 200,
+            height: 200
+          }
+        }]
+      },
+      plugins: {
+        legend: {
+          position: 'right'
+        }
+      }
+    }
   end
 
   def new
@@ -28,6 +62,7 @@ class TasksController < ApplicationController
     @task.user = current_user
 
     if @task.save!
+      FakeJob.perform_now
       redirect_to tasks_path(@task)
     else
       @action = "Add your Task"
@@ -68,6 +103,13 @@ class TasksController < ApplicationController
     @task.done = true
     @task.save
     redirect_to tasks_path(@task)
+  end
+
+  def fetch_nearly_expired_tasks
+    @tasks = Task.where(user_id: current_user.id, done: false)
+    @nearly_done_tasks = @tasks.filter do |task|
+                           task.end_date.day - Date.today.day <= 5
+                         end
   end
 
   private
