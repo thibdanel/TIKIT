@@ -1,12 +1,25 @@
-<div class="container">
-  <div class="row edit-us-show">
-    <h1 class= "mb-3">Créez votre Service</h1>
-    <%= simple_form_for (@service) do |f| %>
-    <%= f.input :name, label: "Titre de votre Service"  %>
-    <%= f.input :description, label: "Description" %>
-    <%= f.input :color, input_html: { type: 'color' }, label: "Choisissez une couleur" %>
-    <%= f.input :photo, as: :file, label: 'Votre logo' %>
-    <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
-    <%end  %>
+<div class="Container-new-services" data-controller="color-picker">
+  <div class="row row-new-services">
+    <div class="col-8">
+      <div class="form-new-services">
+        <div class="position-logo-service">
+          <h2>Créez votre Service</h2>
+            <div class="logo-service">
+              <%= @service.photo.attached? ? cl_image_tag(@service.photo.key) : ""%>
+            </div>
+        </div>
+            <%= simple_form_for (@service) do |f| %>
+              <%= f.input :name, label: "Titre de votre Service"  %>
+              <%= f.input :description, label: "Description" %>
+              <%= f.input :color, input_html: { type: 'color', data: { color_picker_target: "input", action: "change->color-picker#changeColor" } }, label: "Choisissez une couleur" %>
+              <%= f.input :photo, as: :file, label: 'Votre logo' %>
+              <%= f.submit "Sauvegarder", id: 'link-us-edit' %>
+            <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="color-service-choose" style="background-color: #000000;" data-color-picker-target="border">
+      </div>
+    </div>
   </div>
 </div>
