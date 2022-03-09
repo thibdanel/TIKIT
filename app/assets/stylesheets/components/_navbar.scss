@@ -91,3 +91,9 @@
   margin-top: 15px;
   border-radius: 8px;
 }
+
+.nav-item.active .nav-link-new{
+  color: #FFFFFF;
+  background-color: #0077C0;
+  transition: 0.3s;
+}

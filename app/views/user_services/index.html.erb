@@ -1,6 +1,6 @@
 <div class="banner-statistics">
   <div class="row statistics-row">
-    <div class="col-4">
+    <div class="col-3">
       <div class="macaron">
           <% tasks_done = []%>
           <% tasks_pending = []%>
@@ -15,24 +15,34 @@
         <p>Toutes les tâches</p>
       </div>
     </div>
-    <div class="col-4">
-      <div class="macaron">
-        <h2><%=tasks_done.size %></h2>
-        <p>Tâches effectuées</p>
-      </div>
-    </div>
-    <div class="col-4">
+    <div class="col-3">
       <div class="macaron">
         <h2><%= tasks_pending.size %></h2>
         <p>Tâches en attente</p>
       </div>
     </div>
+    <div class="col-3">
+      <div class="macaron">
+        <h2><%=tasks_done.size %></h2>
+        <p>Tâches effectuées</p>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="doughnut">
+        <canvas
+          data-controller="chart"
+          data-chart-type-value="doughnut"
+          data-chart-data-value= "<%= @doughnut_data.to_json %>"
+          data-chart-options-value= "<%= @doughnut_options.to_json %>"
+        ></canvas>
+      </div>
+      </div>
   </div>
 </div>
 
 
 <div class="my-services">
-  <h2>Mes services</h2>
+  <h2>Mes Services</h2>
     <hr>
     <div class="row services-row">
         <% @user_services.each do |user_service| %>
@@ -41,7 +51,7 @@
               <div class="name-service">
                 <%= link_to user_service.service.name, user_service_path(user_service), class:"service-name" %>
                 <div class="logo-service">
-                  <%= user_service.service.photo.attached? ? cl_image_tag(user_service.service.photo.key, height: 300, width: 300, crop: :fill) : ""%>
+                  <%= user_service.service.photo.attached? ? cl_image_tag(user_service.service.photo.key) : ""%>
                   <%#= image_tag "poleemploi.png" %>
                 </div>
               </div>
@@ -49,19 +59,19 @@
               <div class="options-service">
                 <p>Vos informations</p>
                 <div class="options">
-                  <%= link_to edit_user_service_path(user_service) do %>
-                    <i class="fas fa-pen" style="color: #000000"></i>
+                  <%= link_to edit_user_service_path(user_service), class:"edit" do %>
+                    <%= show_svg('edite.svg') %>
                   <% end %>
                   <%= link_to user_service_path(user_service), method: :delete, data: {confirm: "Confirmez vous la suppression de ce service ainsi que toutes les taches associées?"} do %>
-                    <i class="fas fa-trash" style="color: #000000"></i>
+                    <%= show_svg('supprimer.svg') %>
                   <% end %>
                 </div>
               </div>
               <hr id="line2">
               <div class="card-services-infos">
-                <p id="contact-name"><i class="fas fa-user-alt"></i> <%= user_service.contact_name %> </p>
-                <p id="telephone"><i class="fas fa-phone-alt"></i> <%= user_service.contact_phone %> </p>
-                <p id="email"><i class="fas fa-envelope"></i> <%= user_service.contact_email %> </p>
+                <p id="contact-name"><%= show_svg('personne.svg') %> <%= user_service.contact_name %> </p>
+                <p id="telephone"><%= show_svg('telephone.svg')  %> <%= user_service.contact_phone %> </p>
+                <p id="email"><%= show_svg('mail.svg')  %> <%= user_service.contact_email %> </p>
                 <% task_pending = [] %>
                 <% tasks_done = []%>
                 <% user_service.tasks.each do |task|  %>
@@ -71,8 +81,8 @@
                   <% task_pending << task.done %>
                 <% end %>
                 <% end %>
-                <p><i class="fas fa-check"></i><%=tasks_done.size %> Tâches réalisées</p>
-                <p><i class="far fa-times-circle"></i><%=task_pending.size %> Tâches en attente</p>
+                <p><%= show_svg('done.svg') %> <strong> <%=tasks_done.size %> </strong> Tâches réalisées</p>
+                <p><%= show_svg('pending.svg') %> <strong> <%=task_pending.size %> </strong> Tâches en attente</p>
               </div>
 
             </div>
@@ -82,7 +92,7 @@
 </div>
 
 <div class="available-services">
-  <h2>Services disponibles</h2>
+  <h2>Souscrire à un Service</h2>
   <hr>
   <div class="row services-row">
     <% @services.each do |service| %>
@@ -90,15 +100,15 @@
         <div class="card-available-services" style="border-top: 24px solid <%= service.color %>;">
           <div class="card-top">
             <div class="logo-service">
-              <%= service.photo.attached? ? cl_image_tag(service.photo.key, height: 500, width: 500, crop: :fill) : ""%>
+              <%= service.photo.attached? ? cl_image_tag(service.photo.key) : ""%>
               <%#= image_tag "poleemploi.png" %>
             </div>
             <div>
-              <%= link_to new_service_user_service_path(service) do %>
-                <i class="fas fa-plus" style="padding-right: 15px"></i>
+              <%= link_to new_service_user_service_path(service), class: "plus" do %>
+                <%= show_svg('ajouter.svg') %>
               <% end %>
               <%= link_to service_path(service), method: :delete, data: {confirm: "Confirmez vous la suppression de ce service?"} do %>
-                <i class="fas fa-trash" style="color: #000000"></i>
+                  <%= show_svg('supprimer.svg') %>
               <% end %>
             </div>
           </div>
@@ -115,7 +125,7 @@
             <%#= image_tag "poleemploi.png" %>
           </div>
           <%= link_to new_service_path do %>
-            <i class="fas fa-plus"></i>
+            <%= show_svg('ajouter.svg') %>
           <%  end %>
         </div>
         <div class="card-bottom">

@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(user: current_user).order(:end_date)
+    @tasks = Task.where(user: current_user)
+    @tasks_not_done = @tasks.where.not(done: true)
     @user_service = current_user.user_services
     # @services = Service.where(user: current_user)
     @services = @tasks.map do |task|
-                  task.user_service.service.name
-                end
+      task.user_service.service.name
+    end
     @services.uniq!
   end
 
