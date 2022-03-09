@@ -28,6 +28,7 @@ class TasksController < ApplicationController
     @task.user = current_user
 
     if @task.save!
+      FakeJob.perform_now
       redirect_to tasks_path(@task)
     else
       @action = "Add your Task"
@@ -68,6 +69,13 @@ class TasksController < ApplicationController
     @task.done = true
     @task.save
     redirect_to tasks_path(@task)
+  end
+
+  def fetch_nearly_expired_tasks
+    @tasks = Task.where(user_id: current_user.id, done: false)
+    @nearly_done_tasks = @tasks.filter do |task|
+                           task.end_date.day - Date.today.day <= 5
+                         end
   end
 
   private
