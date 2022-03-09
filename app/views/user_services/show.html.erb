@@ -1,33 +1,34 @@
-<div class="container-US-show">
-  <div class="row US-show">
-    <div class="col-7 border-end border-2">
-      <div class="return">
-        <%= link_to user_services_path, class: "plus" do %>
-          <h4> <%= show_svg('retour.svg') %> Retour</h4>
-        <% end %>
-      </div>
-      <h3><%= @service.name %></h3>
+<div class="container-show-services" data-controller="color-picker">
+  <div class="row row-show-services">
+    <div class="col-8">
+      <div class="form-show-services">
+        <div class="return">
+          <%= link_to user_services_path class: "plus" do %>
+            <%= show_svg('retour.svg') %><%= "Retour" %>
+          <% end %>
+        </div>
+        <h2><%= @service.name %></h2>
         <hr id="line" style="color: <%= @user_service.service.color %>">
-          <p><%= @service.description %></p>
-          <p><%= show_svg('personne.svg') %> <%= @user_service.contact_name%></p>
-          <p><%= show_svg('telephone.svg') %> <%= @user_service.contact_phone%></p>
-          <p><%= show_svg('mail.svg') %> <%= @user_service.contact_email%></p>
-          <p><%= show_svg('map.svg') %> <%= @user_service.contact_address%></p>
-          <% tasks_done = [] %>
-            <% @user_service.tasks.each do |task|  %>
-              <% if task.done == true  %>
-              <% tasks_done << task.done  %>
-              <% end %>
-            <% end %>
+        <p id="description"><%= @service.description %></p>
+        <p><%= show_svg('personne.svg') %> <%= @user_service.contact_name%></p>
+        <p><%= show_svg('telephone.svg') %> <%= @user_service.contact_phone%></p>
+        <p><%= show_svg('mail.svg') %> <%= @user_service.contact_email%></p>
+        <p><%= show_svg('map.svg') %> <%= @user_service.contact_address%></p>
+        <% tasks_done = [] %>
+        <% @user_service.tasks.each do |task|  %>
+          <% if task.done == true  %>
+            <% tasks_done << task.done  %>
+          <% end %>
+        <% end %>
         <p><%= show_svg('done.svg') %> <strong><%=tasks_done.size %></strong> Tâches réalisées sur <%= @user_service.tasks.count %>  </p>
-
+      </div>
     </div>
-    <div class="col-5">
-      <div style="width: 100%; height: 350px; border-radius: 5px;"
+    <div class="col-4">
+      <div style="width: 100%; height: calc(100vh - 88px);"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @marker.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
-
 </div>
