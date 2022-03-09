@@ -6,9 +6,8 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.send_reminder.subject
   #
   def send_reminder
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @user = params[:user] # Instance variable => available in view
+    mail(to: @user.email, subject: 'Vous avez des tâches à effectuer !')
   end
 
   def welcome

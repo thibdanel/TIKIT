@@ -5,7 +5,7 @@ namespace :user do
       @filtered_task = user.tasks.filter do |task|
         task.end_date.day - Date.today.day <= 5
       end
-      UserMailer.welcome(user_id).deliver_later
+      UserMailer.send_reminder(user_id).deliver_later
     end
   end
 end
