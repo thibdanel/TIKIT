@@ -3,6 +3,7 @@ class SendReminderJob < ApplicationJob
 
   def perform(*args)
     # Do something later
+
   end
 
   # Itérer sur tous les utilisateurs
@@ -11,12 +12,6 @@ class SendReminderJob < ApplicationJob
   # Planifier l'envoi d'un mail pour le jour suivant
   # Placer ce job dans une rake task qui pourra être lancé par le heroky scheduler
 
-  User.all.each do |user|
-    @filtered_task = user.tasks.filter do |task|
-      task.end_date.day - Date.today.day <= 5
-    end
-    UserMailer.welcome(user_id).deliver_later
-  end
 
   # Pour ce qui est de la récurence on va utiliser des rake tasks
   # Créer un job qui se lancera toutes les 24h
