@@ -1,3 +1,48 @@
+<div class="banner-statistics">
+  <div class="row statistics-row">
+    <div class="col-3">
+      <div class="macaron">
+          <% tasks_done = []%>
+          <% tasks_pending = []%>
+          <% current_user.tasks.each do |task|  %>
+            <% if task.done == true  %>
+              <% tasks_done << task.done  %>
+              <% else %>
+              <% tasks_pending << task.done  %>
+              <% end  %>
+            <% end  %>
+        <h2><%= current_user.tasks.count %></h2>
+        <p>Toutes les tâches</p>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="macaron">
+        <h2><%= tasks_pending.size %></h2>
+        <p>Tâches en attente</p>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="macaron">
+        <h2><%=tasks_done.size %></h2>
+        <p>Tâches effectuées</p>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="doughnut">
+        <canvas
+          data-controller="chart"
+          data-chart-type-value="doughnut"
+          data-chart-data-value= "<%= @doughnut_data.to_json %>"
+          data-chart-options-value= "<%= @doughnut_options.to_json %>"
+        ></canvas>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
 <div class="container-tasks-special">
   <h2>L'essentiel de vos tâches</h2>
 <div class="row row-tasks">
@@ -5,7 +50,7 @@
       <div class="col-6 mt-5">
         <div class="card-tasks" style="border-left: 24px solid #000000;">
           <div class="card-task-top">
-            <h3> Fin des taches </h3>
+            <h3> Fin des tâches </h3>
           </div>
           <hr id="line">
           <div class="row row-task">
@@ -15,9 +60,7 @@
               <div class="col-12">
                 <div class="task">
                   <% if  task.end_date == nil %>
-                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                    <% end %>
+                    <%= render 'task', task: task %>
 
                       <div class="justify">
                         <p style=""><%= task.title.capitalize %> <p>
@@ -27,9 +70,7 @@
                       </div>
 
                     <% elsif (task.end_date.day - Date.today.day) <= 2 %>
-                      <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                        <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                      <% end %>
+                      <%= render 'task', task: task %>
 
                       <div class="justify">
                         <p style="color: #FF8181;"><%= task.title.capitalize %> <p>
@@ -40,9 +81,7 @@
                       <% end  %>
 
                     <% elsif (task.end_date.day - Date.today.day) < 6 %>
-                      <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                        <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                      <% end %>
+                      <%= render 'task', task: task %>
 
                       <div class="justify">
                         <p style="color: #D16E11"><%= task.title.capitalize %> <p>
@@ -53,9 +92,7 @@
                       <% end %>
 
                     <% elsif (task.end_date.day - Date.today.day) == 6 %>
-                      <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                        <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                      <% end %>
+                      <%= render 'task', task: task %>
                       <div class="justify">
                         <p style="color: #D16E11"><%= task.title.capitalize %> <p>
                         <p style="color: #D16E11"><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
@@ -97,9 +134,7 @@
                 <div class="task">
 
                   <% if task.done == false && task.end_date == nil %>
-                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                    <% end %>
+                    <%= render 'task', task: task %>
 
                     <div class="justify">
                       <p style=""><%= task.title.capitalize %> <p>
@@ -109,10 +144,7 @@
                     </div>
 
                   <% elsif task.done == false && (task.end_date.day - Date.today.day) < 0 %>
-
-                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                    <% end %>
+                    <%= render 'task', task: task %>
                     <div class="justify">
                       <p style="color: #FF8181;"><%= task.title.capitalize %> <p>
                       <p style="color: #FF8181"><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
@@ -122,9 +154,7 @@
                     <% end %>
 
                   <% elsif task.done == false && (task.end_date.day - Date.today.day) < 2 %>
-                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                    <% end %>
+                    <%= render 'task', task: task %>
 
                     <div class="justify">
                       <p style="color: #D16E11"><%= task.title.capitalize %> <p>
@@ -135,9 +165,7 @@
                     <% end %>
 
                   <% elsif task.done == false && (task.end_date.day - Date.today.day) >= 2 %>
-                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                    <% end %>
+                    <%= render 'task', task: task %>
 
                     <div class="justify">
                       <p style=""><%= task.title.capitalize %> <p>
@@ -148,10 +176,7 @@
                     <% end %>
 
                     <% elsif task.done == true %>
-
-                    <%= simple_form_for task, url: task_finished_path(task), html: { data: { controller: "check-task", check_task_target: "form" } } do |f| %>
-                      <%= f.input :done, label: false, input_html: { data: { action: "click->check-task#next" } } %>
-                    <% end %>
+                    <%= render 'task', task: task %>
                     <div class="justify">
                       <p style="color: #B7B7B7; text-decoration: line-through;"><%= task.title.capitalize %> <p>
                     </div>

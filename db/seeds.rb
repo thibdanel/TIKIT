@@ -27,7 +27,6 @@ puts "service clean"
 puts "creating services"
 
 file1 = File.open(Rails.root.join('app/assets/images/logos/Pole-emploi.png'))
-p file1
 file2 = File.open(Rails.root.join('app/assets/images/logos/fp.png'))
 file3 = File.open(Rails.root.join('app/assets/images/logos/CAF.png'))
 file4 = File.open(Rails.root.join('app/assets/images/logos/Swiss-Life.png'))
