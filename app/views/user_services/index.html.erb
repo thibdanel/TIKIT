@@ -83,6 +83,7 @@
                 <% end %>
                 <p><%= show_svg('done.svg') %> <strong> <%=tasks_done.size %> </strong> Tâches réalisées</p>
                 <p><%= show_svg('pending.svg') %> <strong> <%=task_pending.size %> </strong> Tâches en attente</p>
+                <p><%= show_svg('task.svg') %> <strong><%= link_to "Voir vos tâches", tasks_path(@task), class:"button-user-service" %></strong></p>
               </div>
 
             </div>
