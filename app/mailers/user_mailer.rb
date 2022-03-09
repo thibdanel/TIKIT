@@ -16,4 +16,13 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome to Le Wagon')
     # This will render a view in `app/views/user_mailer`!
   end
+
+  def create_confirmation
+    @task = params[:task]
+
+    mail(
+      to:       @task.user.email,
+      subject:  "Vous avez #{@task.count} tâches en attente!"
+    )
+  end
 end

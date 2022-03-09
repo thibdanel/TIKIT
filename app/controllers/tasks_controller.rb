@@ -27,6 +27,7 @@ class TasksController < ApplicationController
     @task.user = current_user
 
     if @task.save!
+      FakeJob.perform_now
       redirect_to tasks_path(@task)
     else
       @action = "Add your Task"
