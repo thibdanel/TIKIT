@@ -42,8 +42,9 @@
 
 
 <div class="my-services">
-  <div>
-    <h2>Mes Services</h2>
+  <div class="ajouter-un-service">
+    <h2 id="no-margin">Mes Services</h2>
+    <%= link_to '+ Ajouter un service', user_services_path(anchor: 'service-section'), style:"color: #000000"%>
   </div>
     <hr>
     <div class="row services-row">
@@ -95,7 +96,7 @@
 </div>
 
 <div class="available-services">
-  <h2>Souscrire à un Service</h2>
+  <h2 id="service-section">Ajouter un Service</h2>
   <hr>
   <div class="row services-row">
     <% @services.each do |service| %>

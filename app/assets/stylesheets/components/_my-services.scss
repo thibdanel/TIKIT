@@ -2,7 +2,20 @@
 
 .my-services {
   padding: 0 200px;
+  margin-top: 50px;
 }
+
+.my-services .ajouter-un-service{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-services .ajouter-un-service:hover{
+  color: rgb(90, 90, 90);
+}
+
 
 // My services - Title
 
