@@ -1,4 +1,5 @@
 class UserServicesController < ApplicationController
+  add_flash_types :created, :destroyed
   def index
     @user_services = UserService.where(user: current_user)
     @services = Service.where.not(id: current_user.services)
@@ -64,7 +65,7 @@ class UserServicesController < ApplicationController
       t = Task.create!(title: st.title, description: st.description, end_date: Date.today + st.offset_day, user: current_user, user_service: @user_service)
     end
     if @user_service.save
-      redirect_to user_services_path
+      redirect_to user_services_path, created: 'Successfull created'
     else
       render :new
     end
@@ -84,7 +85,7 @@ class UserServicesController < ApplicationController
     @user_service = UserService.find(params[:id])
     @user_service.tasks.destroy_all
     @user_service.destroy
-    redirect_to user_services_path
+    redirect_to user_services_path, destroyed: 'Successfull destroyed'
   end
 
   def user_service_params

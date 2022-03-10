@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  add_flash_types :created
   def index
     @services = Service.all
   end
@@ -20,7 +21,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-      redirect_to new_service_user_service_path(@service)
+      redirect_to new_service_user_service_path(@service), created: 'Successfull created'
     else
       render :new
     end
