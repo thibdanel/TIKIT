@@ -1,7 +1,13 @@
 <div class="Container-new-services">
   <div class="row row-new-services">
     <div class="col-8">
+
       <div class="form-new-services">
+        <div class="return mb-3">
+          <%= link_to user_services_path class: "plus" do %>
+            <%= show_svg('retour.svg') %><%= "Retour" %>
+          <% end %>
+        </div>
         <div class="position-logo-service">
           <h2 class="h2-user-service-edit"><%= @service.name %></h2>
             <div class="logo-service">
