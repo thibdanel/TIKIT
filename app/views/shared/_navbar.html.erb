@@ -33,7 +33,7 @@
                 <i id="notification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%= show_svg('bell-active.svg') %></i>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
-                  <%= link_to tasks_path, class: "dropdown-item" do %>
+                  <%= link_to tasks_path(anchor: 'urgent-task-section'), class: "dropdown-item" do %>
                     <%= nearly_done_tasks.count %> <%= "Tâches urgentes" %>
                   <% end %>
                 </div>

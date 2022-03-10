@@ -47,7 +47,7 @@
 </div>
 
 
-<div class="container-tasks-special">
+<div class="container-tasks-special" id="urgent-task-section">
   <h2>L'essentiel de vos tâches</h2>
   <div class="row row-tasks">
       <div class="col-6 mt-5">
@@ -58,7 +58,7 @@
           <hr id="line">
           <div class="row row-task">
             <% @tasks_not_done.order('end_date ASC NULLS FIRST').each do |task| %>
-              <% unless task.end_date.nil? || (task.end_date.day - Date.today.day) > 6 %>
+              <% unless task.end_date.nil? || (task.end_date.day - Date.today.day) > 3 %>
               <div class="col-12">
                 <div class="task">
                   <% if  task.end_date == nil %>
@@ -70,7 +70,7 @@
                         <% end %>
                       </div>
 
-                    <% elsif (task.end_date.day - Date.today.day) <= 2 %>
+                    <% elsif (task.end_date.day - Date.today.day) <= 0 %>
                       <%= render 'task', task: task %>
 
                       <div class="justify">
@@ -81,7 +81,7 @@
                         <i class="fas fa-ellipsis-h" style="color: #000000"></i>
                       <% end  %>
 
-                    <% elsif (task.end_date.day - Date.today.day) < 6 %>
+                    <% elsif (task.end_date.day - Date.today.day) < 3 %>
                       <%= render 'task', task: task %>
 
                       <div class="justify">
@@ -92,7 +92,7 @@
                         <i class="fas fa-ellipsis-h" style="color: #000000"></i>
                       <% end %>
 
-                    <% elsif (task.end_date.day - Date.today.day) == 6 %>
+                    <% elsif (task.end_date.day - Date.today.day) == 3 %>
                       <%= render 'task', task: task %>
                       <div class="justify">
                         <p style="color: #D16E11"><%= task.title.capitalize %> <p>
@@ -120,7 +120,7 @@
           <hr id="line">
           <div class="row row-task">
             <% @tasks_not_done.order('end_date ASC NULLS FIRST').each do |task| %>
-              <% unless task.end_date.nil? || (task.end_date.day - Date.today.day) <= 6 %>
+              <% unless task.end_date.nil? || (task.end_date.day - Date.today.day) <= 3 %>
               <div class="col-12">
                 <div class="task">
                   <% if  task.end_date == nil %>
@@ -132,7 +132,7 @@
                         <% end %>
                       </div>
 
-                    <% elsif (task.end_date.day - Date.today.day) > 6 %>
+                    <% elsif (task.end_date.day - Date.today.day) > 3 %>
                       <%= render 'task', task: task %>
 
                       <div class="justify">
@@ -176,7 +176,7 @@
             <% user_service.tasks.order('done ASC, end_date ASC NULLS FIRST').each do |task| %>
 
               <div class="col-12">
-                <div class="task">
+                <div class="task" id="task">
 
                   <% if task.done == false && task.end_date == nil %>
                     <%= render 'task', task: task %>
