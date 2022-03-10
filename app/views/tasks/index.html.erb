@@ -188,7 +188,7 @@
                       <i class="fas fa-ellipsis-h" style="color: #000000"></i>
                     <% end %>
 
-                  <% elsif task.done == false && (task.end_date.day - Date.today.day) < 2 %>
+                  <% elsif task.done == false && (task.end_date.day - Date.today.day) <= 3 %>
                     <%= render 'task', task: task %>
 
                     <div class="justify">
@@ -199,7 +199,7 @@
                       <i class="fas fa-ellipsis-h" style="color: #000000"></i>
                     <% end %>
 
-                  <% elsif task.done == false && (task.end_date.day - Date.today.day) >= 2 %>
+                  <% elsif task.done == false && (task.end_date.day - Date.today.day) > 3 %>
                     <%= render 'task', task: task %>
 
                     <div class="justify">
