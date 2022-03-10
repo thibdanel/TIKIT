@@ -2,6 +2,11 @@
   <div class="row row-edit-services">
     <div class="col-8">
       <div class="form-edit-services">
+      <div class="return mb-3">
+          <%= link_to user_services_path class: "plus" do %>
+            <%= show_svg('retour.svg') %><%= "Retour" %>
+          <% end %>
+        </div>
         <div class="position-logo-service">
           <h2 class="h2-user-service-edit"><%= @user_service.service.name %></h2>
             <div class="logo-service">
