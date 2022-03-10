@@ -28,15 +28,21 @@
       </div>
     </div>
     <div class="col-3">
-      <div class="doughnut">
-        <canvas
-          data-controller="chart"
-          data-chart-type-value="doughnut"
-          data-chart-data-value= "<%= @doughnut_data.to_json %>"
-          data-chart-options-value= "<%= @doughnut_options.to_json %>"
-        ></canvas>
-      </div>
-      </div>
+      <% if @tasks.count == 0 %>
+        <div class="data-img">
+          <%= image_tag "data.png" %>
+        </div>
+      <% elsif @tasks.count >= 1 %>
+        <div class="doughnut">
+          <canvas
+            data-controller="chart"
+            data-chart-type-value="doughnut"
+            data-chart-data-value= "<%= @doughnut_data.to_json %>"
+            data-chart-options-value= "<%= @doughnut_options.to_json %>"
+          ></canvas>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
