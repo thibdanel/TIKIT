@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  add_flash_types :created, :finished
   def index
     @tasks = Task.where(user: current_user)
     @tasks_not_done = @tasks.where.not(done: true)
@@ -63,7 +64,7 @@ class TasksController < ApplicationController
 
     if @task.save!
       FakeJob.perform_now
-      redirect_to tasks_path(@task)
+      redirect_to tasks_path(@task), created: 'Successfull created'
     else
       @action = "Add your Task"
       render :new
@@ -102,7 +103,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.done = true
     @task.save
-    redirect_to tasks_path(@task)
+    redirect_to tasks_path(@task), finished: 'Successfull finished'
   end
 
   def fetch_nearly_expired_tasks
