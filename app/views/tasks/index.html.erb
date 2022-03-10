@@ -167,7 +167,7 @@
           <div class="card-task-top">
             <h3> <%= user_service.service.name %> </h3>
             <%= link_to new_user_service_task_path(user_service) do %>
-              <i class="fas fa-plus"></i>
+              <%= show_svg('ajouter.svg') %>
             <%  end %>
           </div>
           <hr id="line">
