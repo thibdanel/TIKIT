@@ -2,6 +2,6 @@
 
 meta_product_name: "Tikit"
 meta_title: "Tikit."
-meta_description: "Améliorer votre vie grâce à Tikit."
+meta_description: "Tikit."
 meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
