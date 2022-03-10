@@ -163,7 +163,7 @@
 
     <% @user_service.each do |user_service| %>
       <div class="col-6 mt-5">
-        <div class="card-tasks" style="border-left: 24px solid <%= user_service.service.color %>;">
+        <div class="card-tasks" id="tasks" style="border-left: 24px solid <%= user_service.service.color %>;">
           <div class="card-task-top">
             <h3> <%= user_service.service.name %> </h3>
             <%= link_to new_user_service_task_path(user_service) do %>
@@ -176,7 +176,7 @@
             <% user_service.tasks.order('done ASC, end_date ASC NULLS FIRST').each do |task| %>
 
               <div class="col-12">
-                <div class="task" id="task">
+                <div class="task">
 
                   <% if task.done == false && task.end_date == nil %>
                     <%= render 'task', task: task %>
