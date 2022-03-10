@@ -7,8 +7,13 @@
             <%= show_svg('retour.svg') %><%= "Retour" %>
           <% end %>
         </div>
-        <h2><%= @service.name %></h2>
-        <hr id="line" style="color: <%= @user_service.service.color %>">
+          <div class="options-service2">
+            <h2 id="no-margin"><%= @service.name %></h2>
+            <%= link_to edit_user_service_path(@user_service), class:"edit" do %>
+                        <%= show_svg('edite.svg') %>
+                      <% end %>
+          </div>
+           <hr id="line" style="color: <%= @user_service.service.color %>">
         <p id="description"><%= @service.description %></p>
         <p><%= show_svg('personne.svg') %> <%= @user_service.contact_name%></p>
         <p><%= show_svg('telephone.svg') %> <%= @user_service.contact_phone%></p>
