@@ -87,6 +87,16 @@
   cursor: pointer;
 }
 
+.nav-item.dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item.dropdown svg {
+  margin-right: 16px;
+  height: 30px;
+}
+
 .dropdown-menu.show {
   margin-top: 15px;
   border-radius: 8px;

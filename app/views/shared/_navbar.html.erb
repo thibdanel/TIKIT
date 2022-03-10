@@ -19,6 +19,27 @@
           </li>
           <div class="user-container">
             <li class="nav-item dropdown">
+              <% if nearly_done_tasks.count == 0 %>
+                <i id="notification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%= show_svg('bell.svg') %></i>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
+                  <%= link_to tasks_path, class: "dropdown-item" do %>
+                  <%= "Vous êtes à jour dans vos tâches" %>
+                  <% end %>
+                </div>
+
+              <% elsif nearly_done_tasks.count >= 1 %>
+
+                <i id="notification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <%= show_svg('bell-active.svg') %></i>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notification">
+                  <%= link_to tasks_path, class: "dropdown-item" do %>
+                    <%= nearly_done_tasks.count %> <%= "Tâches urgentes" %>
+                  <% end %>
+                </div>
+              <% end %>
+
+
               <%= image_tag "thib.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
               <i class="fas fa-angle-down" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
