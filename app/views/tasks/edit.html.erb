@@ -1,25 +1,34 @@
-<div class="container">
-  <div class="card-tasks" style="border-left: 24px solid <%= @user_service.service.color %>;">
-    <div class="row edit-us-show" data-controller= "flatpicker">
-      <div class="return">
-        <%= link_to tasks_path class: "plus" do %>
-          <%= show_svg('retour.svg') %><%= "Retour" %>
-        <% end %>
-      <h3> Mettez à jour une tâche </h3>
-      </div>
-      <div class="col-7 border-end border-2">
-        <%= simple_form_for([@user_service, @task]) do |f| %>
-        <%= f.input :title, label: "Titre"  %>
-        <%= f.input :description, label: "Description" %>
-        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date" %>
-        <%= f.button :submit, "Mettre à jour une tâche", id: "link-us-edit" %>
-        <% end %>
-      </div>
-      <div class="col-5">
-        <div style="width: 400px; height: 330px; border-radius: 12px;"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @marker.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="container-edit-services">
+  <div class="row row-edit-services">
+    <div class="col-8">
+       <div class="form-edit-services" data-controller= "flatpicker">
+          <div class="return mb-3">
+            <%= link_to tasks_path class: "plus" do %>
+              <%= show_svg('retour.svg') %><%= "Annuler" %>
+            <% end %>
+          </div>
+          <div class="position-logo-service">
+
+            <h2 class="h2-user-service-edit">Mise à jour</h2>
+            <div class="logo-service">
+              <%= @user_service.service.photo.attached? ? cl_image_tag(@user_service.service.photo.key) : ""%>
+            </div>
+
+          </div>
+
+          <%= simple_form_for([@user_service, @task]) do |f| %>
+          <%= f.input :title, label: "Titre"  %>
+          <%= f.input :description, label: "Description" %>
+          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date" %>
+          <%= f.button :submit, "Mettre à jour une tâche", id: "link-us-edit" %>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-4">
+      <div style="width: 100%; height: calc(100vh - 88px);"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @marker.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>

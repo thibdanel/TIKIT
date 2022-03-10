@@ -102,3 +102,16 @@ fieldset.mb-3 {
 .form-check-input.is-valid {
   border-color: #000000;
 }
+.edit-line-task {
+  width: 95%;
+  margin: 0 auto;
+  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.1));
+}
+
+.edit-line-task #line {
+  margin: 0px 0px 0px 30px;
+  width: 50px;
+  height: 5px;
+  border-radius: 30px;
+  opacity: 1;
+}
