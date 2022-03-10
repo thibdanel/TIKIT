@@ -1,26 +1,33 @@
 <div class="container-edit-services">
-  <div class="card-tasks" style="border-left: 24px solid <%= @user_service.service.color %>;">
-    <div class="row edit-us-show" data-controller= "flatpicker">
-      <div class="return">
-        <%= link_to tasks_path class: "plus" do %>
-          <%= show_svg('retour.svg') %><%= "Retour" %>
-        <% end %>
-        <h3 class="mb-4"> Créer votre nouvelle tâche </h3>
-      </div>
-      <div class="col-7 border-end border-2">
-          <%= simple_form_for(@task) do |f| %>
-          <%= f.input :title, label: "Titre"  %>
-          <%= f.input :description, label: "Description"  %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date"  %>
-          <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id], class:"d-none m-0"}, label: false %>
-          <%= f.button :submit, "Créer une tâche", id: "link-us-edit", class:"mb-3 mt-2" %>
+  <div class="row row-edit-services">
+    <div class="col-8">
+      <div class="form-edit-services" data-controller= "flatpicker">
+        <div class="return mb-3">
+          <%= link_to tasks_path class: "plus" do %>
+            <%= show_svg('retour.svg') %><%= "Retour" %>
           <% end %>
+        </div>
+        <div class="position-logo-service">
+          <h2 class="h2-user-service-edit">Créer une tâche</h2>
+            <div class="logo-service">
+              <%= @user_service.service.photo.attached? ? cl_image_tag(@user_service.service.photo.key) : ""%>
+            </div>
+        </div>
+            <%= simple_form_for(@task) do |f| %>
+            <%= f.input :title, label: "Titre"  %>
+            <%= f.input :description, label: "Description"  %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date"  %>
+            <%= f.input :user_service_id, input_html: { hidden: true, value: params[:user_service_id], class:"d-none m-0"}, label: false %>
+            <%= f.button :submit, "Créer une tâche", id: "link-us-edit", class:"mb-3 mt-2" %>
+            <% end %>
       </div>
-      <div class="col-5">
-        <div style="width: 400px; height: 330px; border-radius: 12px;"
+    </div>
+      <div class="col-4">
+        <div style="width: 100%; height: calc(100vh - 88px);"
           data-controller="mapbox"
           data-mapbox-markers-value="<%= @marker.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>

@@ -8,14 +8,11 @@
             <% end %>
           </div>
           <div class="position-logo-service">
-
             <h2 class="h2-user-service-edit">Mise à jour</h2>
             <div class="logo-service">
               <%= @user_service.service.photo.attached? ? cl_image_tag(@user_service.service.photo.key) : ""%>
             </div>
-
           </div>
-
           <%= simple_form_for([@user_service, @task]) do |f| %>
           <%= f.input :title, label: "Titre"  %>
           <%= f.input :description, label: "Description" %>
