@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item <%= 'active' if current_page?(tasks_path) %>">
-            <%= link_to "Tâches", tasks_path, class: "nav-link-new" %>
+            <%= link_to "Ajouter une tâche", tasks_path, class: "nav-link-new" %>
           </li>
           <li class="nav-item <%= 'active' if current_page?(user_services_path) %>">
-            <%= link_to "Services", user_services_path, class: "nav-link-new" %>
+            <%= link_to "Gérer mes services", user_services_path, class: "nav-link-new" %>
           </li>
           <div class="user-container">
             <li class="nav-item dropdown">
