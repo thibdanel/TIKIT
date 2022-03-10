@@ -106,12 +106,12 @@ class TasksController < ApplicationController
     redirect_to tasks_path(@task), finished: 'Successfull finished'
   end
 
-  def fetch_nearly_expired_tasks
-    @tasks = Task.where(user_id: current_user.id, done: false)
-    @nearly_done_tasks = @tasks.filter do |task|
-                           task.end_date.day - Date.today.day <= 5
-                         end
-  end
+  # def fetch_nearly_expired_tasks
+  #   @tasks = Task.where(user_id: current_user.id, done: false)
+  #   @nearly_done_tasks = @tasks.filter do |task|
+  #                          task.end_date.day - Date.today.day <= 5
+  #                        end
+  # end
 
   private
 
