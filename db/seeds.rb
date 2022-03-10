@@ -149,7 +149,7 @@ service_task9 = ServiceTask.new(service: service2,  title: 'Verifier crédit imp
 # service_task13 = ServiceTask.new(service: service3,  title: 'inscription', description: 'urgent pour renouvelement de droits', offset_day: 5)
 
 service_task14 = ServiceTask.new(service: service3,  title: 'Déclaration Ass-mat', description: '20 du mois', offset_day: rand(1..15))
-service_task15 = ServiceTask.new(service: service3,  title: 'Déclarer un changement', description: 'urgent pour renouvelement de droits', offset_day: rand(1..15))
+service_task15 = ServiceTask.new(service: service3,  title: 'Déclarer changement adresse', description: 'urgent pour renouvelement de droits', offset_day: rand(1..15))
 service_task16 = ServiceTask.new(service: service3,  title: 'Déclarer naissance', description: '3 mois avant naissance', offset_day: rand(1..15))
 service_task17 = ServiceTask.new(service: service3,  title: 'Verifier paiement droit', description: '5 du mois', offset_day: rand(1..15))
 

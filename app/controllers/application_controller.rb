@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
     @count = 0
     @count < 1? @count += 1 : false
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
