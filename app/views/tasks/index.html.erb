@@ -81,19 +81,9 @@
                         <i class="fas fa-ellipsis-h" style="color: #000000"></i>
                       <% end  %>
 
-                    <% elsif (task.end_date.day - Date.today.day) < 3 %>
+                    <% elsif (task.end_date.day - Date.today.day) <= 3 %>
                       <%= render 'task', task: task %>
 
-                      <div class="justify">
-                        <p style="color: #D16E11"><%= task.title.capitalize %> <p>
-                        <p style="color: #D16E11"><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
-                      </div>
-                      <%= link_to edit_user_service_task_path(task.user_service,task) do %>
-                        <i class="fas fa-ellipsis-h" style="color: #000000"></i>
-                      <% end %>
-
-                    <% elsif (task.end_date.day - Date.today.day) == 3 %>
-                      <%= render 'task', task: task %>
                       <div class="justify">
                         <p style="color: #D16E11"><%= task.title.capitalize %> <p>
                         <p style="color: #D16E11"><%= task.end_date.day - Date.today.day %> jours <i class="fas fa-clock"></i> </p>
