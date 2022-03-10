@@ -1,7 +1,7 @@
 # config/meta.yml
 
 meta_product_name: "Tikit"
-meta_title: "Tikit."
-meta_description: "Tikit."
+meta_title: "Tikit. Une plateforme facile pour rester organisé"
+meta_description: "Inscrivez-vous à notre bibliothèque de services et générez toutes vos tâches en un clic que vous soyez un particulier ou une entreprise."
 meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
