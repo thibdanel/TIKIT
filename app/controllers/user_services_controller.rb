@@ -62,7 +62,7 @@ class UserServicesController < ApplicationController
     @user_service.service = @service
     @user_service.user = current_user
     @service.service_tasks.each do |st|
-      t = Task.create!(title: st.title, description: st.description, end_date: Date.today + st.offset_day, user: current_user, user_service: @user_service)
+      Task.create!(title: st.title, description: st.description, end_date: Date.today + st.offset_day, user: current_user, user_service: @user_service)
     end
     if @user_service.save
       redirect_to user_services_path, created: 'Successfull created'
